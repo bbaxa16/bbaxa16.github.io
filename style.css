@@ -1,0 +1,21 @@
+body {
+  margin: 0px;
+}
+.header {
+
+}
+.container {
+
+}
+nav {
+
+}
+#footer {
+  text-align: center;
+  font-size: smaller;
+  color: white;
+  background-color: black;
+  width: 100%;
+  margin: 0px;
+  padding-bottom: 10px;
+}

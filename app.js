@@ -17,10 +17,13 @@
 
 //after picking your adventurer you'll pick your pokemon
 
+$(()=>{
+
+//first thing we will need to do is grab the start button. and decide what we want to happen we do this.
 
 
 
-
+})
 
 
 
@@ -29,4 +32,14 @@
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //The picking and choosing can just be extra to start, number one priority is functionality. So to start we could just start with the click button going right into a battle.
 
-//battle will have our adventure and pokemon on the right and a wild pokemon (opponent) on the other side. they will battle with different attack options, will use similar logic with accuracy in battleship homework with accuracy being determined by math.random. first pokemon to lose all health points will faint and the other pokemon will win.
+//battle will have our adventurer and pokemon on the right and a wild pokemon (opponent) on the left side. they will battle with different attack options, will use similar logic with accuracy in battleship homework with accuracy being determined by math.random. first pokemon to lose all health points will faint and the other pokemon will win.
+
+//pokemon object vs class ? I'm think all pokemon should be a class, that way it's easier to creat a bunch of different ones.
+
+//values a pokemon will need:
+// - name
+// - level points - xp
+// - accuracy
+// - health
+// - different attacks
+// - different defenses
