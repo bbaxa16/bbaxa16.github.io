@@ -2,7 +2,12 @@ body {
   margin: 0px;
 }
 .header {
-
+  display: flex;
+  justify-content: center;
+}
+.logo {
+  width: 50%;
+  height: 50%;
 }
 .container {
 
