@@ -3,7 +3,7 @@
 //home page
 
 //one DOM feature - the start button towards the bottom of the page, centered.
-//when start button is clicked (deciding if it should ge a button or a link to a new page.)
+//when start button is clicked (deciding if it should be a button or a link to a new page.)
 
 //Go to the choose your adventurer
 //if we decide to use jquery:
