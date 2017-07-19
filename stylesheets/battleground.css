@@ -11,3 +11,10 @@
   background-repeat: no-repeat;
 
 }
+.pokeChoice {
+  border: 2px solid black;
+}
+.pokeImages {
+  width: 100px;
+  height: 100px;
+}

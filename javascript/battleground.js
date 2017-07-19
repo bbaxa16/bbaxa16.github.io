@@ -4,15 +4,39 @@ $('#ready').on('click', function(){
   pickUrPoke();
 })
 const pickUrPoke = () => {
+  //removes the pokemon photo
   $('.default').remove();
+  //creates 3 new divs that will house the pokemon choices.
   const pokeChoice1 = $('<div/>').addClass('pokeChoice');
   const pokeChoice2 = $('<div/>').addClass('pokeChoice');
   const pokeChoice3 = $('<div/>').addClass('pokeChoice');
   $('.container').append(pokeChoice1);
   $('.container').append(pokeChoice2);
   $('.container').append(pokeChoice3);
-
-  //$('.pokechoice').on('click' function(){}) will need this eventually
+  //adds images of the pokemon choices to their respectice divs.
+  const $imgCharmander = $('<img src="../img/charmander.png">').addClass('pokeImages');
+  const $imgFroakie = $('<img src="../img/froakie.png">').addClass('pokeImages');
+  const $imgBellsprout = $('<img src="../img/bellsprout.png">').addClass('pokeImages');
+  $(pokeChoice1).append($imgCharmander);
+  $(pokeChoice2).append($imgFroakie);
+  $(pokeChoice3).append($imgBellsprout);
+  //adds specs of the pokemon choices
+  const $specsCharmander = $('<ul><li>Pokétype: fire</li></ul><p>Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail.</p>');
+  const $specsFroakie = $('<ul><li>Pokétype: water</li></ul><p>It protects its skin by covering its body in delicate bubbles. Beneath its happy-go-lucky air, it keeps a watchful eye on its surroundings.</p>')
+  const $specsBellsprout = $('<ul><li>Pokétype: grass</li></ul><p>Prefers hot and humid places. It ensnares tiny insects with tis vines and devours them.</p>');
+  $(pokeChoice1).append($specsCharmander);
+  $(pokeChoice2).append($specsFroakie);
+  $(pokeChoice3).append($specsBellsprout);
+  //create 3 different event listeners for each pokemon choice.
+  $(pokeChoice1).on('click', function() {
+    alert('You picked Charmander!');
+  })
+  $(pokeChoice2).on('click', function(){
+    alert('You picked Froakie!');
+  })
+  $(pokeChoice3).on('click', function(){
+    alert('You picked Bellsprout!');
+  })
 }
 
 })
