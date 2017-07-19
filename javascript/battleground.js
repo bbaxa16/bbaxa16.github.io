@@ -152,11 +152,17 @@ const bellsprout = new Pokemon("bellsprout", 1, "grass");
 
 //create an array of all the pokemon
 const pokeArr = [pikachu,charmander,snortle,froakie,bellsprout];
-console.log(pokeArr);
+
+//create a function that will randomly select our opponent.
+const choosePoke = () => {
+    const randoPoke = pokeArr[Math.floor(Math.random()* pokeArr.length)];
+    return randoPoke;
+}
 
 const start = () => {
   alert('battle started')
   charmander.getAccuracy();
    charmander.attack(snortle);
 }
+console.log(choosePoke());
 // pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);
