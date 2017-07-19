@@ -1,9 +1,19 @@
 $(()=>{ //window onload
 
 $('#ready').on('click', function(){
-  pikachu.getAccuracy();
-  pikachu.attack(snortle);
-} )
+  pickUrPoke();
+})
+const pickUrPoke = () => {
+  $('.default').remove();
+  const pokeChoice1 = $('<div/>').addClass('pokeChoice');
+  const pokeChoice2 = $('<div/>').addClass('pokeChoice');
+  const pokeChoice3 = $('<div/>').addClass('pokeChoice');
+  $('.container').append(pokeChoice1);
+  $('.container').append(pokeChoice2);
+  $('.container').append(pokeChoice3);
+
+  //$('.pokechoice').on('click' function(){}) will need this eventually
+}
 
 })
 
@@ -47,6 +57,8 @@ class Pokemon {
 const pikachu = new Pokemon("pikachu", 1, "electric");
 
 const snortle = new Pokemon("snortle", 1, "grass");
-// pikachu.getAccuracy();
-// pikachu.attack(snortle);
+const start = () => {
+  pikachu.getAccuracy();
+   pikachu.attack(snortle);
+}
 // pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);
