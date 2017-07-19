@@ -58,6 +58,7 @@ const pickUrPoke = () => {
     //trying to link the charmander object to this div.
     $(pokeChoice1).data(charmander);
     start();
+
   });
   $(pokeChoice2).on('click', function(){
     alert('You picked Froakie!');
@@ -121,10 +122,11 @@ class Pokemon {
           alert('You have won this battle');
           this.coin +=325;
         }
+      }
         else {
           console.log(this.name + ' missed.');
         }
-      }
+
     }
     else if (this.poketype === "electric"){
       if(Math.random() < this.accuracy){
@@ -155,14 +157,16 @@ const pokeArr = [pikachu,charmander,snortle,froakie,bellsprout];
 
 //create a function that will randomly select our opponent.
 const choosePoke = () => {
-    const randoPoke = pokeArr[Math.floor(Math.random()* pokeArr.length)];
-    return randoPoke;
+    let randoPoke = pokeArr[Math.floor(Math.random()* pokeArr.length)];
+    return randoPoke; 
 }
 
 const start = () => {
   alert('battle started')
+  let randoPoke = choosePoke();
   charmander.getAccuracy();
-   charmander.attack(snortle);
+   charmander.attack(randoPoke);
+   randoPoke.getAccuracy();
+   randoPoke.attack(charmander);
 }
-console.log(choosePoke());
 // pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);
