@@ -150,8 +150,9 @@ const snortle = new Pokemon("snortle", 1, "grass");
 const froakie = new Pokemon("froakie", 1, "water");
 const bellsprout = new Pokemon("bellsprout", 1, "grass");
 
-
-
+//create an array of all the pokemon
+const pokeArr = [pikachu,charmander,snortle,froakie,bellsprout];
+console.log(pokeArr);
 
 const start = () => {
   alert('battle started')
