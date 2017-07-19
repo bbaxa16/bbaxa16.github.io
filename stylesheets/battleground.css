@@ -26,6 +26,12 @@
   width: 100px;
   height: 100px;
 }
+#charGif {
+  display: block;
+  margin: auto;
+  width: 40%;
+}
+
 /*#pickYourPokeModal {
   background-color: blue;
   cursor: point;

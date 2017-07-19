@@ -26,6 +26,8 @@ const pickUrPoke = () => {
   $('#header').append($pickYourPoke);
   //creates 3 new divs that will house the pokemon choices.
   const pokeChoice1 = $('<div/>').addClass('pokeChoice');
+  //$(pokeChoice1).attr('id', 'pokeChoice1'); why wont it give it an id
+
   const pokeChoice2 = $('<div/>').addClass('pokeChoice');
   const pokeChoice3 = $('<div/>').addClass('pokeChoice');
   $('.container').append(pokeChoice1);
@@ -54,10 +56,15 @@ const pickUrPoke = () => {
   $(pokeChoice3).append($specsBellsprout);
   //create 3 different event listeners for each pokemon choice.
   $(pokeChoice1).on('click', function() {
-    alert('You picked Charmander! Prepare for Battle!');
+  //  alert('You picked Charmander! Prepare for Battle!');
+    charmanderModal();
     //trying to link the charmander object to this div.
-    $(pokeChoice1).data(charmander);
-    start();
+    //$(pokeChoice1).data(charmander);
+    //$('.container').remove();
+    // $(pokeChoice2).remove();
+    // $(pokeChoice3).remove();
+    // $(pokeChoice1).css('display:', 'center');
+    //start();
 
   });
   $(pokeChoice2).on('click', function(){
@@ -66,6 +73,14 @@ const pickUrPoke = () => {
   $(pokeChoice3).on('click', function(){
     alert('You picked Bellsprout!');
   });
+}
+const charmanderModal = () => {
+  $('.container').remove();
+  $('#user-modal').css('display','block');
+  $('#user-modal').append('<iframe src="https://giphy.com/embed/YzABsnRu6dM1a" width="480" height="382" frameBorder="0" allowFullScreen></iframe>').attr('id', 'charGif');
+
+
+
 }
 
 })
@@ -94,10 +109,10 @@ class Pokemon {
           alert('You have won this battle');
           this.coin +=325;
         }
+      }
         else {
           console.log('ya missed fool');
         }
-      }
     }
     else if (this.poketype === "grass"){
       if(Math.random() < this.accuracy){
@@ -108,10 +123,10 @@ class Pokemon {
           alert('You have won this battle');
           this.coin +=325;
         }
+      }
         else {
           console.log(this.name + ' missed.');
         }
-      }
     }
     else if (this.poketype === "fire"){
       if(Math.random() < this.accuracy){
@@ -137,10 +152,10 @@ class Pokemon {
           alert('You have won this battle');
           this.coin +=325;
         }
+      }
         else {
           console.log(this.name + ' missed.');
         }
-      }
     }
   }
 }
@@ -158,15 +173,15 @@ const pokeArr = [pikachu,charmander,snortle,froakie,bellsprout];
 //create a function that will randomly select our opponent.
 const choosePoke = () => {
     let randoPoke = pokeArr[Math.floor(Math.random()* pokeArr.length)];
-    return randoPoke; 
+    return randoPoke;
 }
-
-const start = () => {
-  alert('battle started')
-  let randoPoke = choosePoke();
-  charmander.getAccuracy();
-   charmander.attack(randoPoke);
-   randoPoke.getAccuracy();
-   randoPoke.attack(charmander);
-}
+//
+// const start = () => {
+//   alert('battle started')
+//   let randoPoke = choosePoke();
+//   charmander.getAccuracy();
+//    charmander.attack(randoPoke);
+//    randoPoke.getAccuracy();
+//    randoPoke.attack(charmander);
+// }
 // pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);
