@@ -9,10 +9,18 @@
   height: 800px;
   margin-left: 200px;
   background-repeat: no-repeat;
+  
 
 }
 .pokeChoice {
   border: 2px solid black;
+  text-align: center;
+  list-style: none;
+  width: 30%;
+  height: 300px;
+}
+.pokeChoice h2 {
+  font-family: fantasy;
 }
 .pokeImages {
   width: 100px;
