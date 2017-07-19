@@ -9,7 +9,7 @@
   height: 800px;
   margin-left: 200px;
   background-repeat: no-repeat;
-  
+
 
 }
 .pokeChoice {
@@ -26,3 +26,12 @@
   width: 100px;
   height: 100px;
 }
+/*#pickYourPokeModal {
+  background-color: blue;
+  cursor: point;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  display: none;
+}*/

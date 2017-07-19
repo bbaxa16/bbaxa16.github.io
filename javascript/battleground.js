@@ -1,5 +1,18 @@
 $(()=>{ //window onload
 
+//modal test
+// const modalPick = $('#pickYourPokeModal');
+// $('#test').on('click', function() {
+//   modalPick.css('display',"block");
+//   $('.testPoke').on('click', function() {
+//     alert('You picked Charmander! Prepare for Battle!');
+//     //trying to link the charmander object to this div.
+//     $(pokeChoice1).data(charmander);
+//     start();
+//   })
+// })
+
+
 $('#ready').on('click', function(){
   pickUrPoke();
 })
