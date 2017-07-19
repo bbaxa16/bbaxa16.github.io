@@ -1,0 +1,14 @@
+#header {
+  font-family: fantasy;
+  font-size: larger;
+  width: 100%;
+  text-align: center;
+}
+.container {
+  width: 100%;
+  height: 800px;
+  margin-left: 200px;
+  background-image: url("../img/pokebattledefaul.png");
+  background-repeat: no-repeat;
+
+}
