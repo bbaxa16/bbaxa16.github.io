@@ -12,11 +12,8 @@ class Pokemon {
     this.accuracy = '';
     this.health = 100;
   }
-  getAccuracy(){ //this will give all pokes a randomly generated accuracy between the number 5 and 10.
-    Math.ceil(5);
-    Math.floor(10);
-    this.accuracy = Math.floor(Math.random()* (10-5)) + 5;
-    console.log(this.accuracy);
+  getAccuracy(){ //this will give all pokes a randomly generated accuracy between .5 and .10.
+    this.accuracy = Math.random() * (.5 - .10) + .5;
   }
 }
 
