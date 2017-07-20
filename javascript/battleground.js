@@ -65,6 +65,9 @@ $(()=>{ //window onload
             alert('lightning strike was very effective. ' + wildPoke.name + ' fainted. You have won this battle');
             this.coin +=325;
           }
+          else if(this.hp <= 0){//check to see if we dead.
+            alert('we dead'.)
+          }
         }
           else {
             alert(this.name + ' missed.');
@@ -81,15 +84,20 @@ $(()=>{ //window onload
   const bellsprout = new Pokemon("bellsprout", 1, "grass", $('<img src="../img/bellsprout.png">').addClass('pokeImages'));
 
   //create an array of all the pokemon
-  const pokeArr = [pikachu,charmander,squirtle,froakie,bellsprout];
+  const pokeArr = [pikachu];
 
   //create a function that will randomly select our opponent.
   const choosePoke = () => {
       let randoPoke = pokeArr[Math.floor(Math.random()* pokeArr.length)];
       return randoPoke;
   }
-  //
-  const start = () => {
+  //game object
+const game = {
+  rounds: 1,
+  checkBattleWinner(){
+    if()
+  }
+  start(){
     let randoPoke = choosePoke();
     $('#battle').remove();
     alert('Wild ' + randoPoke.name + ' appeared!');
@@ -97,11 +105,27 @@ $(()=>{ //window onload
     //create an attack button that will first get our accuracy, then attack the enemy poke. they will then attack too.
     const $attackButton = $('<button>A T T A C K</button>');
     $('.pokeChoice').append($attackButton);
+    //create an eventlistener for this button, and have a attackbutton method that runs all the game functions we need it to?
+
     // charmander.getAccuracy();
     //  charmander.attack(randoPoke);
     //  randoPoke.getAccuracy();
     //  randoPoke.attack(charmander);
   }
+}
+  // const start = () => {
+  //   let randoPoke = choosePoke();
+  //   $('#battle').remove();
+  //   alert('Wild ' + randoPoke.name + ' appeared!');
+  //   $('.container').append(randoPoke.img);
+  //   //create an attack button that will first get our accuracy, then attack the enemy poke. they will then attack too.
+  //   const $attackButton = $('<button>A T T A C K</button>');
+  //   $('.pokeChoice').append($attackButton);
+  //   // charmander.getAccuracy();
+  //   //  charmander.attack(randoPoke);
+  //   //  randoPoke.getAccuracy();
+  //   //  randoPoke.attack(charmander);
+  // }
 
 
 
