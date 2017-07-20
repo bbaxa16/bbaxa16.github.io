@@ -2,6 +2,7 @@ body {
   background-image: url('../img/grassybattle.png');
   background-size: cover;
   background-repeat: none;
+  width: 100%;
 }
 #header {
   font-family: fantasy;
@@ -17,23 +18,38 @@ body {
   background-image: url("../img/pokebattlefield.png");
   background-repeat: no-repeat;
   background-size: contain;
-
-
-
-}
-.pokeChoice {
-  border: 2px solid black;
   text-align: center;
-  list-style: none;
-  width: 30%;
-  height: 300px;
 }
-.pokeChoice h2 {
+#ready {
+  margin-right: 55%;
+  margin-left: -5%;
+  margin-top: 15%;
+  padding: 10px 100px;
+  font-family: monospace;
+
+}
+img {
+  width: 175px;
+  height: 175px;
+}
+#ourPoke {
+  width: 200px;
+  height: 200px;
+  margin-top: 130px;
+  margin-left: 125px;
+  float:left;
+  display: inline-block;
+}
+#battle {
+  margin-right: 60%;
+}
+#ourPokeSpecs {
   font-family: fantasy;
+  display: none;
 }
-.pokeImages {
-  width: 100px;
-  height: 100px;
+#wildPokeSpecs {
+    font-family: fantasy;
+    display: none;
 }
 
 

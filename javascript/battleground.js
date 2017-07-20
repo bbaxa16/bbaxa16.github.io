@@ -209,11 +209,15 @@ const game = {
 //   $('#user-modal').append(name);
 // }
 $('#ready').on('click', function(){
+  //selects our pokemon we will battle with
   let ourPoke = chooseOurPoke();
-  $('.default').remove();
+  //removes the 'ready to battle' button
   $('#ready').remove();
-  $('.container').append(ourPoke.img).addClass('ourPoke');
+  //puts our Poke on the battlefield
+  $('#ourPoke').append(ourPoke.img);
+  //tells us who are pokemon is going to be
   alert('Your pokémon is ' + ourPoke.name);
+  // creates and attachs our battle button, when clicked will run the start().
   const $battleButton = $('<button>Battle!</button>').attr('id', 'battle');
   $('.container').append($battleButton);
   $($battleButton).on('click', function(){
