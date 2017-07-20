@@ -11,7 +11,7 @@ $(()=>{ //window onload
 //     start();
 //   })
 // })
-
+//come back to the modal idea later, switching to prompts to get through functionality.
 // const createModal = (name) => {
 //   $('.container').remove();
 //   name.innerText = name
@@ -60,8 +60,15 @@ const pickUrPoke = () => {
   $(pokeChoice3).append($specsBellsprout);
   //create 3 different event listeners for each pokemon choice.
   $(pokeChoice1).on('click', function() {
-  //  alert('You picked Charmander! Prepare for Battle!');
-    createModal(Charmander);
+    alert('You picked Charmander! Prepare for Battle!');
+    const $battleButton = $('<button>Battle!</button>').attr('id', 'battle');
+    $('.container').append($battleButton);
+    $(pokeChoice2).remove();
+    $(pokeChoice3).remove();
+    $($battleButton).on('click', function(){
+      start();
+    })
+    //createModal(Charmander);
     //trying to link the charmander object to this div.
     //$(pokeChoice1).data(charmander);
     //$('.container').remove();
@@ -78,6 +85,8 @@ const pickUrPoke = () => {
     alert('You picked Bellsprout!');
   });
 }
+
+//createModal function
 // const createModal = (name) => {
 //   $('.container').remove();
 //   name.innerText = name
@@ -88,7 +97,7 @@ const pickUrPoke = () => {
 
 
 
-})
+}) //close of our window onload
 
 class Pokemon {
   constructor (name, level, poketype){
@@ -181,12 +190,12 @@ const choosePoke = () => {
     return randoPoke;
 }
 //
-// const start = () => {
-//   alert('battle started')
-//   let randoPoke = choosePoke();
-//   charmander.getAccuracy();
-//    charmander.attack(randoPoke);
-//    randoPoke.getAccuracy();
-//    randoPoke.attack(charmander);
-// }
+const start = () => {
+  let randoPoke = choosePoke();
+  alert(randoPoke.name + ' appeared!');
+  charmander.getAccuracy();
+   charmander.attack(randoPoke);
+   randoPoke.getAccuracy();
+   randoPoke.attack(charmander);
+}
 // pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);
