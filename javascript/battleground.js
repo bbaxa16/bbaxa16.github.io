@@ -21,8 +21,7 @@ $(()=>{ //window onload
           wildPoke.hp -= 22;
           alert('Water gun was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
-            alert('Water gun was very effective. ' + wildPoke.name + ' fainted. You have won this battle!' );
-            alert('You have won this battle');
+            alert('Water gun was very effective. ' + wildPoke.name + ' fainted.' );
             this.coin +=325;
           }
         }
@@ -35,7 +34,7 @@ $(()=>{ //window onload
           wildPoke.hp -= 22;
           alert('Razor leaf was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
-            alert('Razor leaf was very effective. ' + wildPoke.name + ' fainted. You have won this battle!');
+            alert('Razor leaf was very effective. ' + wildPoke.name + ' fainted.');
             this.coin +=325;
           }
         }
@@ -48,7 +47,7 @@ $(()=>{ //window onload
           wildPoke.hp -= 22;
           alert('Fireball was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
-            alert('Fireball was very effective. ' + wildPoke.name + ' fainted. You have won this battle!');
+            alert('Fireball was very effective. ' + wildPoke.name + ' fainted.');
             this.coin +=325;
           }
         }
@@ -59,14 +58,15 @@ $(()=>{ //window onload
       }
       else if (this.poketype === "electric"){
         if(Math.random() < this.accuracy){
-          wildPoke.hp -= 22;
+          wildPoke.hp -= 100;
           alert('lightning strike was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
-            alert('lightning strike was very effective. ' + wildPoke.name + ' fainted. You have won this battle');
+            alert('lightning strike was very effective. ' + wildPoke.name + ' fainted.');
+            game.checkBattleWinner();
             this.coin +=325;
           }
           else if(this.hp <= 0){//check to see if we dead.
-            alert('we dead'.)
+            game.checkBattleWinner();
           }
         }
           else {
@@ -95,8 +95,28 @@ $(()=>{ //window onload
 const game = {
   rounds: 1,
   checkBattleWinner(){
-    if()
-  }
+    if(charmander.hp <= 0){
+      this.overMessage();
+    }
+    else {
+      alert('YOU WON THE BATTLE FUCK YES!');
+      game.rounds ++;
+
+    }
+  },
+  overMessage(){
+    alert('game over sucka');
+    const restart = prompt('Would you like to restart?', 'yes/no');
+      if(restart === 'yes'){
+        $('.container').children().eq(0).remove();
+        $('.container').children().eq(0).remove();
+        //$('.pokeChoice').children().eq(4).remove();
+        pickUrPoke();
+      }
+      else{
+        alert('back to index.html you go');
+      }
+  },
   start(){
     let randoPoke = choosePoke();
     $('#battle').remove();
@@ -106,11 +126,12 @@ const game = {
     const $attackButton = $('<button>A T T A C K</button>');
     $('.pokeChoice').append($attackButton);
     //create an eventlistener for this button, and have a attackbutton method that runs all the game functions we need it to?
-
-    // charmander.getAccuracy();
-    //  charmander.attack(randoPoke);
-    //  randoPoke.getAccuracy();
-    //  randoPoke.attack(charmander);
+    $($attackButton).on('click', function(){
+      charmander.getAccuracy();
+       charmander.attack(randoPoke);
+       randoPoke.getAccuracy();
+       randoPoke.attack(charmander);
+    })
   }
 }
   // const start = () => {
@@ -192,6 +213,7 @@ const pickUrPoke = () => {
   $(pokeChoice3).append($specsBellsprout);
   //create 3 different event listeners for each pokemon choice.
   $(pokeChoice1).on('click', function() {
+    $(pokeChoice1).off('click');
     alert('You picked Charmander! Prepare for Battle!');
     $('#header').children().eq(1).remove();
     const $battleButton = $('<button>Battle!</button>').attr('id', 'battle');
@@ -199,7 +221,7 @@ const pickUrPoke = () => {
     $(pokeChoice2).remove();
     $(pokeChoice3).remove();
     $($battleButton).on('click', function(){
-      start();
+      game.start();
       $($battleButton).off('click');
     })
     //createModal(Charmander);
