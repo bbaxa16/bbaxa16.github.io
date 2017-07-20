@@ -91,18 +91,29 @@ $(()=>{ //window onload
   //creating all the different pokemon.
   const pikachu = new Pokemon("pikachu", 1, "electric", $('<img src="../img/pikachu.png">').addClass('pokeImages'));
   const charmander = new Pokemon("charmander", 1, "fire", $('<img src="../img/charmander.png">').addClass('pokeImages'));
-  const squirtle = new Pokemon("snortle", 1, "water", $('<img src="../img/squirtle.png">').addClass('pokeImages'));
+  const squirtle = new Pokemon("squirtle", 1, "water", $('<img src="../img/squirtle.png">').addClass('pokeImages'));
   const froakie = new Pokemon("froakie", 1, "water", $('<img src="../img/froakie.png">').addClass('pokeImages'));
   const bellsprout = new Pokemon("bellsprout", 1, "grass", $('<img src="../img/bellsprout.png">').addClass('pokeImages'));
 
-  //create an array of all the pokemon
-  const pokeArr = [pikachu,squirtle,froakie,bellsprout];
-
+  //create an array of the pokemon we will battle
+  const wildArr = [pikachu,froakie];
+  //create an array of the pokemon we will battle with
+  const ourArr = [squirtle,bellsprout,charmander];
   //create a function that will randomly select our opponent.
-  const choosePoke = () => {
-      let randoPoke = pokeArr[Math.floor(Math.random()* pokeArr.length)];
-      return randoPoke;
+  const chooseWildPoke = () => {
+      let wildPoke = wildArr[Math.floor(Math.random()* wildArr.length)];
+      return wildPoke;
   }
+  //create a function that will randomly select our pokemon
+  const chooseOurPoke = () => {
+    let ourPoke = ourArr[Math.floor(Math.random()* ourArr.length)];
+    return ourPoke;
+  }
+
+console.log(chooseWildPoke());
+console.log(chooseOurPoke());
+console.log('can you see this');
+
   //game object
 const game = {
   rounds: 1,
@@ -136,7 +147,7 @@ const game = {
   },
   start(){ //conditionals for rounds
     if(this.rounds === 1){
-      $('.container').children().eq(1).remove();
+      //$('.container').children().eq(1).remove();
       let randoPoke = choosePoke();
       alert('Wild ' + randoPoke.name + ' appeared!');
       $('.container').append(randoPoke.img);
@@ -197,9 +208,21 @@ const game = {
 //   $('#user-modal').append(name);
 // }
 $('#ready').on('click', function(){
-  pickUrPoke();
+  let userPoke = choosePoke();
+  $('.default').remove();
+  $('#ready').remove();
+  $('.container').append(userPoke.img);
+  alert('Your pokémon is ' + userPoke.name);
+  const $battleButton = $('<button>Battle!</button>').attr('id', 'battle');
+  $('.container').append($battleButton);
+  $($battleButton).on('click', function(){
+    game.start();
+
 })
-const pickUrPoke = () => {
+})
+//****************************none of the stuff below matters *****************
+
+const pickUrPoke = () => { //usually called on '#ready' but taking it out for now
   //removes the ready for battle button
   $('#ready').remove();
   //removes the pokemon photo
@@ -248,7 +271,6 @@ const pickUrPoke = () => {
     $(pokeChoice3).remove();
     $($battleButton).on('click', function(){
       game.start();
-      $($battleButton).off('click');
     })
     //createModal(Charmander);
     //trying to link the charmander object to this div.
@@ -276,7 +298,6 @@ const pickUrPoke = () => {
 
   // $('#user-modal').css('display','block');
   // $('#user-modal').append('<iframe src="https://giphy.com/embed/YzABsnRu6dM1a" width="480" height="382" frameBorder="0" allowFullScreen></iframe>').attr('id', 'charGif');
-
 
 
 }) //close of window onload
