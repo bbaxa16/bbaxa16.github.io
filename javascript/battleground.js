@@ -12,7 +12,11 @@ $(()=>{ //window onload
 //   })
 // })
 
-
+// const createModal = (name) => {
+//   $('.container').remove();
+//   name.innerText = name
+//   $('#user-modal').append(name);
+// }
 $('#ready').on('click', function(){
   pickUrPoke();
 })
@@ -57,7 +61,7 @@ const pickUrPoke = () => {
   //create 3 different event listeners for each pokemon choice.
   $(pokeChoice1).on('click', function() {
   //  alert('You picked Charmander! Prepare for Battle!');
-    charmanderModal();
+    createModal(Charmander);
     //trying to link the charmander object to this div.
     //$(pokeChoice1).data(charmander);
     //$('.container').remove();
@@ -74,14 +78,15 @@ const pickUrPoke = () => {
     alert('You picked Bellsprout!');
   });
 }
-const charmanderModal = () => {
-  $('.container').remove();
-  $('#user-modal').css('display','block');
-  $('#user-modal').append('<iframe src="https://giphy.com/embed/YzABsnRu6dM1a" width="480" height="382" frameBorder="0" allowFullScreen></iframe>').attr('id', 'charGif');
+// const createModal = (name) => {
+//   $('.container').remove();
+//   name.innerText = name
+//   $('#user-modal').append(name);
+
+  // $('#user-modal').css('display','block');
+  // $('#user-modal').append('<iframe src="https://giphy.com/embed/YzABsnRu6dM1a" width="480" height="382" frameBorder="0" allowFullScreen></iframe>').attr('id', 'charGif');
 
 
-
-}
 
 })
 
