@@ -1,5 +1,113 @@
 $(()=>{ //window onload
 
+  class Pokemon {
+    constructor (name, level, poketype, img){
+      this.name = name;
+      this.level = level;
+      this.xp = 5;
+      this.poketype = poketype;
+      this.img = img;
+      this.accuracy = '';
+      this.hp = 100;
+      this.coin = 300;
+    }
+    getAccuracy(){ //this will give all pokes a randomly generated accuracy between .5 and .10.
+      this.accuracy = Math.random() * (.7 - .4) + .4;
+      console.log(this.accuracy);
+    }
+    attack(wildPoke){
+      if(this.poketype === "water"){
+        if(Math.random() < this.accuracy){
+          wildPoke.hp -= 22;
+          alert('Water gun was v effective, ' + wildPoke.name + ' loses 22 hp');
+          if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
+            alert('Water gun was very effective. ' + wildPoke.name + ' fainted. You have won this battle!' );
+            alert('You have won this battle');
+            this.coin +=325;
+          }
+        }
+          else {
+            alert('attack missed!');
+          }
+      }
+      else if (this.poketype === "grass"){
+        if(Math.random() < this.accuracy){
+          wildPoke.hp -= 22;
+          alert('Razor leaf was v effective, ' + wildPoke.name + ' loses 22 hp');
+          if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
+            alert('Razor leaf was very effective. ' + wildPoke.name + ' fainted. You have won this battle!');
+            this.coin +=325;
+          }
+        }
+          else {
+            alert(this.name + ' missed.');
+          }
+      }
+      else if (this.poketype === "fire"){
+        if(Math.random() < this.accuracy){
+          wildPoke.hp -= 22;
+          alert('Fireball was v effective, ' + wildPoke.name + ' loses 22 hp');
+          if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
+            alert('Fireball was very effective. ' + wildPoke.name + ' fainted. You have won this battle!');
+            this.coin +=325;
+          }
+        }
+          else {
+            alert(this.name + ' missed.');
+          }
+
+      }
+      else if (this.poketype === "electric"){
+        if(Math.random() < this.accuracy){
+          wildPoke.hp -= 22;
+          alert('lightning strike was v effective, ' + wildPoke.name + ' loses 22 hp');
+          if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
+            alert('lightning strike was very effective. ' + wildPoke.name + ' fainted. You have won this battle');
+            this.coin +=325;
+          }
+        }
+          else {
+            alert(this.name + ' missed.');
+          }
+      }
+    }
+  }
+
+  //creating all the different pokemon.
+  const pikachu = new Pokemon("pikachu", 1, "electric", $('<img src="../img/pikachu.png">').addClass('pokeImages'));
+  const charmander = new Pokemon("charmander", 1, "fire", $('<img src="../img/charmander.png">').addClass('pokeImages'));
+  const squirtle = new Pokemon("snortle", 1, "water", $('<img src="../img/squirtle.png">').addClass('pokeImages'));
+  const froakie = new Pokemon("froakie", 1, "water", $('<img src="../img/froakie.png">').addClass('pokeImages'));
+  const bellsprout = new Pokemon("bellsprout", 1, "grass", $('<img src="../img/bellsprout.png">').addClass('pokeImages'));
+
+  //create an array of all the pokemon
+  const pokeArr = [pikachu,charmander,squirtle,froakie,bellsprout];
+
+  //create a function that will randomly select our opponent.
+  const choosePoke = () => {
+      let randoPoke = pokeArr[Math.floor(Math.random()* pokeArr.length)];
+      return randoPoke;
+  }
+  //
+  const start = () => {
+    let randoPoke = choosePoke();
+    $('#battle').remove();
+    alert('Wild ' + randoPoke.name + ' appeared!');
+    $('.container').append(randoPoke.img);
+    //create an attack button that will first get our accuracy, then attack the enemy poke. they will then attack too.
+    const $attackButton = $('<button>A T T A C K</button>');
+    $('.pokeChoice').append($attackButton);
+    // charmander.getAccuracy();
+    //  charmander.attack(randoPoke);
+    //  randoPoke.getAccuracy();
+    //  randoPoke.attack(charmander);
+  }
+
+
+
+//**************************************************************************
+
+
 //modal test
 // const modalPick = $('#pickYourPokeModal');
 // $('#test').on('click', function() {
@@ -61,12 +169,14 @@ const pickUrPoke = () => {
   //create 3 different event listeners for each pokemon choice.
   $(pokeChoice1).on('click', function() {
     alert('You picked Charmander! Prepare for Battle!');
+    $('#header').children().eq(1).remove();
     const $battleButton = $('<button>Battle!</button>').attr('id', 'battle');
     $('.container').append($battleButton);
     $(pokeChoice2).remove();
     $(pokeChoice3).remove();
     $($battleButton).on('click', function(){
       start();
+      $($battleButton).off('click');
     })
     //createModal(Charmander);
     //trying to link the charmander object to this div.
@@ -97,105 +207,7 @@ const pickUrPoke = () => {
 
 
 
-}) //close of our window onload
+}) //close of window onload
 
-class Pokemon {
-  constructor (name, level, poketype){
-    this.name = name;
-    this.level = level;
-    this.xp = 5;
-    this.poketype = poketype;
-    this.accuracy = '';
-    this.hp = 100;
-    this.coin = 300;
-  }
-  getAccuracy(){ //this will give all pokes a randomly generated accuracy between .5 and .10.
-    this.accuracy = Math.random() * (.7 - .4) + .4;
-    console.log(this.accuracy);
-  }
-  attack(wildPoke){
-    if(this.poketype === "water"){
-      if(Math.random() < this.accuracy){
-        wildPoke.hp -= 22;
-        console.log('Water gun was v effective, ' + wildPoke.name + ' loses 22 hp');
-        if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
-          console.log('Water gun was very effective. ' + wildPoke.name + ' fainted.');
-          alert('You have won this battle');
-          this.coin +=325;
-        }
-      }
-        else {
-          console.log('ya missed fool');
-        }
-    }
-    else if (this.poketype === "grass"){
-      if(Math.random() < this.accuracy){
-        wildPoke.hp -= 22;
-        console.log('Razor leaf was v effective, ' + wildPoke.name + ' loses 22 hp');
-        if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
-          console.log('Razor leaf was very effective. ' + wildPoke.name + ' fainted.');
-          alert('You have won this battle');
-          this.coin +=325;
-        }
-      }
-        else {
-          console.log(this.name + ' missed.');
-        }
-    }
-    else if (this.poketype === "fire"){
-      if(Math.random() < this.accuracy){
-        wildPoke.hp -= 22;
-        console.log('Fireball was v effective, ' + wildPoke.name + ' loses 22 hp');
-        if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
-          console.log('Fireball was very effective. ' + wildPoke.name + ' fainted.');
-          alert('You have won this battle');
-          this.coin +=325;
-        }
-      }
-        else {
-          console.log(this.name + ' missed.');
-        }
 
-    }
-    else if (this.poketype === "electric"){
-      if(Math.random() < this.accuracy){
-        wildPoke.hp -= 22;
-        console.log('lightning strike was v effective, ' + wildPoke.name + ' loses 22 hp');
-        if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
-          console.log('lightning strike was very effective. ' + wildPoke.name + ' fainted.');
-          alert('You have won this battle');
-          this.coin +=325;
-        }
-      }
-        else {
-          console.log(this.name + ' missed.');
-        }
-    }
-  }
-}
-
-//creating all the different pokemon.
-const pikachu = new Pokemon("pikachu", 1, "electric");
-const charmander = new Pokemon("charmander", 1, "fire");
-const snortle = new Pokemon("snortle", 1, "grass");
-const froakie = new Pokemon("froakie", 1, "water");
-const bellsprout = new Pokemon("bellsprout", 1, "grass");
-
-//create an array of all the pokemon
-const pokeArr = [pikachu,charmander,snortle,froakie,bellsprout];
-
-//create a function that will randomly select our opponent.
-const choosePoke = () => {
-    let randoPoke = pokeArr[Math.floor(Math.random()* pokeArr.length)];
-    return randoPoke;
-}
-//
-const start = () => {
-  let randoPoke = choosePoke();
-  alert(randoPoke.name + ' appeared!');
-  charmander.getAccuracy();
-   charmander.attack(randoPoke);
-   randoPoke.getAccuracy();
-   randoPoke.attack(charmander);
-}
 // pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);pikachu.attack(snortle);
