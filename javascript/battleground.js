@@ -22,7 +22,11 @@ $(()=>{ //window onload
           alert('Water gun was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
             alert('Water gun was very effective. ' + wildPoke.name + ' fainted.' );
+            game.checkBattleWinner();
             this.coin +=325;
+          }
+          else if(this.hp <= 0){
+            game.checkBattleWinner();
           }
         }
           else {
@@ -35,7 +39,11 @@ $(()=>{ //window onload
           alert('Razor leaf was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
             alert('Razor leaf was very effective. ' + wildPoke.name + ' fainted.');
+            game.checkBattleWinner();
             this.coin +=325;
+          }
+          else if(this.hp <= 0){
+            game.checkBattleWinner();
           }
         }
           else {
@@ -46,9 +54,13 @@ $(()=>{ //window onload
         if(Math.random() < this.accuracy){
           wildPoke.hp -= 22;
           alert('Fireball was v effective, ' + wildPoke.name + ' loses 22 hp');
-          if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
+          if(wildPoke.hp <= 0){
             alert('Fireball was very effective. ' + wildPoke.name + ' fainted.');
             this.coin +=325;
+            game.checkBattleWinner();
+          }
+          else if(this.hp <= 0){//check to see if we dead
+            game.checkBattleWinner();
           }
         }
           else {
@@ -58,7 +70,7 @@ $(()=>{ //window onload
       }
       else if (this.poketype === "electric"){
         if(Math.random() < this.accuracy){
-          wildPoke.hp -= 100;
+          wildPoke.hp -= 22;
           alert('lightning strike was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){ //need to add another function that will end this battle.
             alert('lightning strike was very effective. ' + wildPoke.name + ' fainted.');
@@ -84,7 +96,7 @@ $(()=>{ //window onload
   const bellsprout = new Pokemon("bellsprout", 1, "grass", $('<img src="../img/bellsprout.png">').addClass('pokeImages'));
 
   //create an array of all the pokemon
-  const pokeArr = [pikachu];
+  const pokeArr = [pikachu,squirtle,froakie,bellsprout];
 
   //create a function that will randomly select our opponent.
   const choosePoke = () => {
@@ -101,6 +113,11 @@ const game = {
     else {
       alert('YOU WON THE BATTLE FUCK YES!');
       game.rounds ++;
+      const newRound = prompt('Ready for the next round?');
+      if(newRound === 'yes'){
+        alert('Round ' + this.rounds + ' begin!');
+        game.start();
+      }
 
     }
   },
@@ -117,21 +134,30 @@ const game = {
         alert('back to index.html you go');
       }
   },
-  start(){
+  start(){ //conditionals for rounds
+    if(this.rounds === 1){
+      $('.container').children().eq(1).remove();
+      let randoPoke = choosePoke();
+      alert('Wild ' + randoPoke.name + ' appeared!');
+      $('.container').append(randoPoke.img);
+      //create an attack button that will first get our accuracy, then attack the enemy poke. they will then attack too.
+      const $attackButton = $('<button>A T T A C K</button>');
+      $('.pokeChoice').append($attackButton);
+      //create an eventlistener for this button, and have a attackbutton method that runs all the game functions we need it to?
+      $($attackButton).on('click', function(){
+        charmander.getAccuracy();
+         charmander.attack(randoPoke);
+         randoPoke.getAccuracy();
+         randoPoke.attack(charmander);
+    })
+  }
+    else { //bug always picks the same pokie and has its health at the same level
+    charmander.hp = 100;
+    //randoPoke.hp = 100;
     let randoPoke = choosePoke();
-    $('#battle').remove();
     alert('Wild ' + randoPoke.name + ' appeared!');
     $('.container').append(randoPoke.img);
-    //create an attack button that will first get our accuracy, then attack the enemy poke. they will then attack too.
-    const $attackButton = $('<button>A T T A C K</button>');
-    $('.pokeChoice').append($attackButton);
-    //create an eventlistener for this button, and have a attackbutton method that runs all the game functions we need it to?
-    $($attackButton).on('click', function(){
-      charmander.getAccuracy();
-       charmander.attack(randoPoke);
-       randoPoke.getAccuracy();
-       randoPoke.attack(charmander);
-    })
+    }
   }
 }
   // const start = () => {
