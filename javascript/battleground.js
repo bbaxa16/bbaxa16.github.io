@@ -24,9 +24,9 @@ let wildPoke = " ";
       if(this.poketype === "water"){
         if(Math.random() < this.accuracy){
           wildPoke.hp -= 22;
-          alert('Water gun was v effective, ' + wildPoke.name + ' loses 22 hp');
+          createModal('Water gun was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){
-            alert('Water gun was very effective. ' + wildPoke.name + ' fainted.' );
+            createModal('Water gun was very effective. ' + wildPoke.name + ' fainted.' );
             game.checkBattleWinner();
             this.coin +=325;
           }
@@ -35,15 +35,15 @@ let wildPoke = " ";
           }
         }
           else {
-            alert('attack missed!');
+            createModal('attack missed!');
           }
       }
       else if (this.poketype === "grass"){
         if(Math.random() < this.accuracy){
           wildPoke.hp -= 22;
-          alert('Razor leaf was v effective, ' + wildPoke.name + ' loses 22 hp');
+          createModal('Razor leaf was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){
-            alert('Razor leaf was very effective. ' + wildPoke.name + ' fainted.');
+            createModal('Razor leaf was very effective. ' + wildPoke.name + ' fainted.');
             game.checkBattleWinner();
             this.coin +=325;
           }
@@ -52,15 +52,15 @@ let wildPoke = " ";
           }
         }
           else {
-            alert(this.name + ' missed.');
+            createModal(this.name + ' missed.');
           }
       }
       else if (this.poketype === "fire"){
         if(Math.random() < this.accuracy){
           wildPoke.hp -= 22;
-          alert('Fireball was v effective, ' + wildPoke.name + ' loses 22 hp');
+          createModal('Fireball was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){
-            alert('Fireball was very effective. ' + wildPoke.name + ' fainted.');
+            createModal('Fireball was very effective. ' + wildPoke.name + ' fainted.');
             this.coin +=325;
             game.checkBattleWinner();
           }
@@ -69,16 +69,16 @@ let wildPoke = " ";
           }
         }
           else {
-            alert(this.name + ' missed.');
+            createModal(this.name + ' missed.');
           }
 
       }
       else if (this.poketype === "electric"){
         if(Math.random() < this.accuracy){
           wildPoke.hp -= 22;
-          alert('lightning strike was v effective, ' + wildPoke.name + ' loses 22 hp');
+          createModal('lightning strike was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){
-            alert('lightning strike was very effective. ' + wildPoke.name + ' fainted.');
+            createModal('lightning strike was very effective. ' + wildPoke.name + ' fainted.');
             game.checkBattleWinner();
             this.coin +=325;
           }
@@ -87,7 +87,7 @@ let wildPoke = " ";
           }
         }
           else {
-            alert(this.name + ' missed.');
+            createModal(this.name + ' missed.');
           }
       }
     }
@@ -125,45 +125,45 @@ const game = {
       this.overMessage();
     }
     else {
-      alert('YOU WON THE BATTLE FUCK YES!');
+      createModal('YOU WON THE BATTLE FUCK YES!');
       game.rounds ++;
       const newRound = prompt('Ready for the next round?');
       if(newRound === 'yes'){
-        alert('Round ' + this.rounds + ' begin!');
+        createModal('Round ' + this.rounds + ' begin!');
         game.start();
       }
       else {
         let restart = prompt('Would you like to restart?', 'yes/no');
          if(restart === 'yes'){
-           alert('need to refresh battleground page/take them back to index.html')
+           createModal('need to refresh battleground page/take them back to index.html')
 
          }
          else{
-           alert('back to index.html you go');
+           createModal('back to index.html you go');
          }
       }
     }
   },
   overMessage(){
-    alert('game over sucka');
+    createModal('game over sucka');
      let restart = prompt('Would you like to restart?', 'yes/no');
       if(restart === 'yes'){
-        alert('need to refresh battleground page/take them back to index.html')
+        createModal('need to refresh battleground page/take them back to index.html')
 
       }
       else{
-        alert('back to index.html you go');
+        createModal('back to index.html you go');
       }
   },
   gameWinner(){
-    alert('YOU HAVE BEATEN THE GAME, YOU ARE THE ONE TRUE POKÉMON MASTER!')
+    createModal('YOU HAVE BEATEN THE GAME, YOU ARE THE ONE TRUE POKÉMON MASTER!')
   },
   start(){ //conditionals for rounds
     if(this.rounds === 1){
       //chooses the wild pokemon we will battle
       wildPoke = chooseWildPoke();
       //alerts us which pokemon has been chosen
-      alert('Wild ' + wildPoke.name + ' appeared!');
+      createModal('Wild ' + wildPoke.name + ' appeared!');
       //attachs the wild pokemon img to its respective div
       $('#wildPoke').append(wildPoke.img).addClass('wildPoke');
       //create an attack button that will first get our accuracy, then attack the enemy poke. they will then attack too.
@@ -191,7 +191,7 @@ const game = {
     ourPoke.hp += 1000;
     wildPoke = chooseWildPoke()
     wildPoke.hp = 100
-    alert('Wild ' + wildPoke.name + ' appeared!')
+    createModal('Wild ' + wildPoke.name + ' appeared!')
     $('#wildPoke').children().eq(0).remove()
     $('#wildPoke').append(wildPoke.img)
     game.showOurPokeSpecs()
@@ -222,22 +222,9 @@ const game = {
   }
 }
 
-//**************************************************************************
-
-
-//modal test
-// const modalPick = $('#message-modal');
-// $('#message-modal').on('click', function() {
-//   modalPick.css('display',"inline-block");
-//   })
-// })
-
-// const createModal = (name) => {
-
-//   name.innerText = name
-//   $('#user-modal').append(name);
-// }
-
+//********************
+//Modal function where all messages will go
+//********************
 
 const createModal = (message) => {
 
