@@ -4,11 +4,25 @@ body {
 .header{
   color: white;
   text-align: center;
+  background-color: grey;
+  border-radius: 3%;
 
 }
-ul {
+
+.header ul li{
   list-style-type: none;
   display: inline-block;
+  text-decoration: none;
+
+}
+.header a {
+  text-decoration: none;
+  color: white;
+}
+.header a:hover {
+  color: black;
+}
+
 }
 .container {
   display: flex;
@@ -17,4 +31,11 @@ ul {
 video {
   border-radius: 3%;
   border: 2px solid darkgrey;
+
+}
+#footer{
+  background-image: url('../img/moonfooter.jpg');
+  height: 15%;
+  width: 100vw;
+  background-position: center;
 }
