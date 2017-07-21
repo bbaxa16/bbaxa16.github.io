@@ -85,9 +85,13 @@ img {
   text-align: center;
 }
 #message-modal {
+  animation: blink .5s step-end infinite alternate;
   display: none;
 }
 
+@keyframes blink {
+  50% { border-color: red;}
+}
 
 /*#pickYourPokeModal {
   background-color: blue;
