@@ -1,19 +1,36 @@
 body {
   margin: 0px;
+
 }
 .header {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  border-radius: 3%;
+  margin: 0 10%;
+  width: 80%;
+}
+.header ul li{
+  list-style-type: none;
+  display: inline-block;
+  text-decoration: none;
+
+}
+.header a {
+  text-decoration: none;
+}
+.header a:hover {
+  color: grey;
 }
 .logo {
   width: 50%;
   height: 50%;
 }
 .container {
-
+  width: 80%;
+  height:40%;
+  margin: 0 10%;
 }
-nav {
-
+button {
+  
 }
 #footer {
   text-align: center;

@@ -10,6 +10,13 @@ body {
   width: 100%;
   text-align: center;
 }
+#header a {
+  text-decoration: none;
+  color: black;
+}
+#header a:hover {
+  text-decoration: underline;
+}
 #subheader {
   text-align: center;
   color: red;
