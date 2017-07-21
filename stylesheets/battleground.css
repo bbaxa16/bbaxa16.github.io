@@ -10,9 +10,19 @@ body {
   width: 100%;
   text-align: center;
 }
+#subheader {
+  text-align: center;
+  color: red;
+  font-family: monospace;
+  background-color: black;
+  height: 50px;
+  width: 175px;
+  display: none;
+  margin-left: 37%;
+}
 .container {
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   margin-top: 35px;
   margin-left: 247px;
   background-image: url("../img/pokebattlefield.png");

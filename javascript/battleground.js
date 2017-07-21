@@ -119,7 +119,7 @@ let wildPoke = " ";
 const game = {
   rounds: 1,
   checkBattleWinner(){
-    if(charmander.hp <= 0){
+    if(ourPoke.hp <= 0){
       this.overMessage();
     }
     else {
@@ -130,85 +130,96 @@ const game = {
         alert('Round ' + this.rounds + ' begin!');
         game.start();
       }
+      else {
+        let restart = prompt('Would you like to restart?', 'yes/no');
+         if(restart === 'yes'){
+           alert('need to refresh battleground page/take them back to index.html')
 
+         }
+         else{
+           alert('back to index.html you go');
+         }
+      }
     }
   },
   overMessage(){
     alert('game over sucka');
-    const restart = prompt('Would you like to restart?', 'yes/no');
+     let restart = prompt('Would you like to restart?', 'yes/no');
       if(restart === 'yes'){
-        $('.container').children().eq(0).remove();
-        $('.container').children().eq(0).remove();
-        //$('.pokeChoice').children().eq(4).remove();
+        alert('need to refresh battleground page/take them back to index.html')
 
       }
       else{
         alert('back to index.html you go');
       }
   },
+  gameWinner(){
+    alert('YOU HAVE BEATEN THE GAME, YOU ARE THE ONE TRUE POKÉMON MASTER!')
+  },
   start(){ //conditionals for rounds
-    //if(this.rounds === 1){
+    if(this.rounds === 1){
       //chooses the wild pokemon we will battle
-      let wildPoke = chooseWildPoke();
+      wildPoke = chooseWildPoke();
       //alerts us which pokemon has been chosen
       alert('Wild ' + wildPoke.name + ' appeared!');
       //attachs the wild pokemon img to its respective div
       $('#wildPoke').append(wildPoke.img).addClass('wildPoke');
       //create an attack button that will first get our accuracy, then attack the enemy poke. they will then attack too.
-
       const $attackButton = $('<button>A T T A C K</button>');
       //remove the battle button
       $('#battle').remove();
-
       //attach the button to our pokemon
       $('#ourPoke').append($attackButton);
-      //this.showOurPokeSpecs();
-      this.showWildPokeSpecs();
-
+      this.showOurPokeSpecs()
+      this.showWildPokeSpecs()
+      this.roundCounter()
       //create an eventlistener for this button, and have a attackbutton method that runs all the game functions we need it to?
       $($attackButton).on('click', function(){
-        console.log(ourPoke.name);
-        // ourPoke.getAccuracy();
-        //  ourPoke.attack(wildPoke);
-        //  wildPoke.getAccuracy();
-        //  wildPoke.attack(ourPoke);
+         //ourPoke.getAccuracy();
+         ourPoke.accuracy = 2;
+         ourPoke.attack(wildPoke);
+         game.showWildPokeSpecs();
+         wildPoke.getAccuracy();
+         wildPoke.attack(ourPoke);
+         game.showOurPokeSpecs();
     })
-  //}
-
-    // else { //bug always picks the same pokie and has its health at the same level
-    // charmander.hp = 100;
-    // //randoPoke.hp = 100;
-    // let randoPoke = choosePoke();
-    // alert('Wild ' + randoPoke.name + ' appeared!');
-    // $('.container').append(randoPoke.img);
-    // }
+  }
+    else if(game.rounds <=3) {
+    game.roundCounter();
+    ourPoke.hp += 1000;
+    wildPoke = chooseWildPoke()
+    wildPoke.hp = 100
+    alert('Wild ' + wildPoke.name + ' appeared!')
+    $('#wildPoke').append(wildPoke.img)
+    game.showOurPokeSpecs()
+    game.showWildPokeSpecs()
+    }
+    else {
+      game.gameWinner();
+    }
   },
   showOurPokeSpecs(){
-    $('#ourPokeSpecs').css('display','inline-block');
-  //  $('#ourPokeSpecs').children().eq(0).html('test');
-    console.log($('#ourPokeSpecs').children().eq(0));
-    console.log(ourPoke);
+    $('#ourPokeSpecs').css('display','inline-block')
+    $('#ourPokeSpecs').children().eq(0).html(ourPoke.name)
+    $('#ourPokeSpecs').children().eq(1).children().eq(0).html('hp: ' + ourPoke.hp)
+    $('#ourPokeSpecs').children().eq(1).children().eq(1).html('level: ' + ourPoke.level)
+    $('#ourPokeSpecs').children().eq(1).children().eq(2).html('pokétype: ' + ourPoke.poketype)
+
+
   },
   showWildPokeSpecs(){
     $('#wildPokeSpecs').css('display','inline-block');
-      $('#ourPokeSpecs').children().eq(0).html(wildPoke.name)
-      console.log(wildPoke.name);
+    $('#wildPokeSpecs').children().eq(0).html(wildPoke.name)
+    $('#wildPokeSpecs').children().eq(1).children().eq(0).html('hp: ' + wildPoke.hp)
+    $('#wildPokeSpecs').children().eq(1).children().eq(1).html('level: ' + wildPoke.level)
+    $('#wildPokeSpecs').children().eq(1).children().eq(2).html('pokétype: ' + wildPoke.poketype)
+
+  },
+  roundCounter(){
+    $('#subheader').css('display','inline-block');
+    $('#subheader').children().eq(0).html('Round: ' + game.rounds)
   }
 }
-  // const start = () => {
-  //   let randoPoke = choosePoke();
-  //   $('#battle').remove();
-  //   alert('Wild ' + randoPoke.name + ' appeared!');
-  //   $('.container').append(randoPoke.img);
-  //   //create an attack button that will first get our accuracy, then attack the enemy poke. they will then attack too.
-  //   const $attackButton = $('<button>A T T A C K</button>');
-  //   $('.pokeChoice').append($attackButton);
-  //   // charmander.getAccuracy();
-  //   //  charmander.attack(randoPoke);
-  //   //  randoPoke.getAccuracy();
-  //   //  randoPoke.attack(charmander);
-  // }
-
 
 //**************************************************************************
 
@@ -232,7 +243,7 @@ const game = {
 // }
 $('#ready').on('click', function(){
   //selects our pokemon we will battle with
-  let ourPoke = chooseOurPoke();
+  ourPoke = chooseOurPoke();
   //removes the 'ready to battle' button
   $('#ready').remove();
   //puts our Poke on the battlefield
