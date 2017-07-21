@@ -6,6 +6,9 @@ body {
   text-align: center;
   background-color: grey;
   border-radius: 3%;
+  margin: 0 10%;
+  width: 80%;
+
 
 }
 
@@ -34,8 +37,10 @@ video {
 
 }
 #footer{
-  background-image: url('../img/moonfooter.jpg');
+  background-color: black;
+  color: white;
+  text-align: center;
   height: 15%;
   width: 100vw;
-  background-position: center;
+
 }
