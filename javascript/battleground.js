@@ -226,22 +226,37 @@ const game = {
 
 
 //modal test
-// const modalPick = $('#pickYourPokeModal');
-// $('#test').on('click', function() {
-//   modalPick.css('display',"block");
-//   $('.testPoke').on('click', function() {
-//     alert('You picked Charmander! Prepare for Battle!');
-//     //trying to link the charmander object to this div.
-//     $(pokeChoice1).data(charmander);
-//     start();
+// const modalPick = $('#message-modal');
+// $('#message-modal').on('click', function() {
+//   modalPick.css('display',"inline-block");
 //   })
 // })
-//come back to the modal idea later, switching to prompts to get through functionality.
+
 // const createModal = (name) => {
-//   $('.container').remove();
+
 //   name.innerText = name
 //   $('#user-modal').append(name);
 // }
+
+
+const createModal = (message) => {
+
+  $('#message-modal').text(message)
+  $('#message-modal').css('font-family','fantasy')
+  $('#message-modal').css('color', 'white')
+  $('#message-modal').css('background-color','black')
+  $('#message-modal').css('border','2px dotted white')
+  $('#message-modal').css('border-radius', '3%')
+  $('#message-modal').css('font-size','36px')
+  $('#message-modal').css('display','inline-block')
+  $('#message-modal').css('position','absolute')
+  $('#message-modal').css('zIndex', '1')
+  $('#message-modal').css('width', '30%')
+  $('#message-modal').css('textAlign', 'center')
+
+}
+
+//The very first button thats pressed on this page
 $('#ready').on('click', function(){
   //selects our pokemon we will battle with
   ourPoke = chooseOurPoke();
@@ -250,14 +265,17 @@ $('#ready').on('click', function(){
   //puts our Poke on the battlefield
   $('#ourPoke').append(ourPoke.img);
   //tells us who are pokemon is going to be
-  alert('Your pokémon is ' + ourPoke.name);
+  createModal('Your pokémon is ' + ourPoke.name)
+
+  //alert('Your pokémon is ' + ourPoke.name);
+
   // creates and attachs our battle button, when clicked will run the start().
   const $battleButton = $('<button>Battle!</button>').attr('id', 'battle');
   $('.container').append($battleButton);
   $($battleButton).on('click', function(){
     game.start();
 
-})
+  })
 })
 //****************************none of the stuff below matters *****************
 //

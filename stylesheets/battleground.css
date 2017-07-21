@@ -64,8 +64,9 @@ img {
   background-color: white;
   border-radius: 3%;
   border: 2px dotted black;
-  font-family: fantasy;
   display: none;
+  font-family: fantasy;
+
 }
 #ourPokeSpecs h1 {
   text-align: center;
