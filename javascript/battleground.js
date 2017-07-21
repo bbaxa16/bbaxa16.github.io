@@ -230,7 +230,8 @@ const game = {
 
 const createModal = (message) => {
 
-  $('#message-modal').text(message)
+  //const $message = $('<div/>').addClass('message')
+  $('#message-modal').html('<div>' + message + '</div>')
   $('#message-modal').css('font-family','fantasy')
   $('#message-modal').css('color', 'white')
   $('#message-modal').css('background-color','black')
@@ -242,6 +243,8 @@ const createModal = (message) => {
   $('#message-modal').css('zIndex', '1')
   $('#message-modal').css('width', '30%')
   $('#message-modal').css('textAlign', 'center')
+  $('#message-modal').css('display','inline-block')
+  //$('#message-modal').append($message);
 
 }
 
