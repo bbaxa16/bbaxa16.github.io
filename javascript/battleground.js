@@ -94,14 +94,16 @@ let wildPoke = " ";
   }
 
   //creating all the different pokemon.
-  const pikachu = new Pokemon("pikachu", 1, "electric", $('<img src="../img/pikachu.png">').addClass('pokeImages'));
-  const charmander = new Pokemon("charmander", 1, "fire", $('<img src="../img/charmander.png">').addClass('pokeImages'));
-  const squirtle = new Pokemon("squirtle", 1, "water", $('<img src="../img/squirtle.png">').addClass('pokeImages'));
-  const froakie = new Pokemon("froakie", 1, "water", $('<img src="../img/froakie.png">').addClass('pokeImages'));
-  const bellsprout = new Pokemon("bellsprout", 1, "grass", $('<img src="../img/bellsprout.png">').addClass('pokeImages'));
+  const pikachu = new Pokemon("pikachu", 1, "electric", $('<img src="../img/pikachu.png">').addClass('pokeImages'))
+  const charmander = new Pokemon("charmander", 1, "fire", $('<img src="../img/charmander.png">').addClass('pokeImages'))
+  const squirtle = new Pokemon("squirtle", 1, "water", $('<img src="../img/squirtle.png">').addClass('pokeImages'))
+  const froakie = new Pokemon("froakie", 1, "water", $('<img src="../img/froakie.png">').addClass('pokeImages'))
+  const bellsprout = new Pokemon("bellsprout", 1, "grass", $('<img src="../img/bellsprout.png">').addClass('pokeImages'))
+  const chimchar = new Pokemon("chimchar", 1, "fire", $('<img src="../img/chimchar.png">').addClass('pokeImages'))
+  const totodile = new Pokemon("totodile", 1, "water", $('<img src="../img/totodile.png">').addClass('pokeImages'))
 
   //create an array of the pokemon we will battle
-  const wildArr = [pikachu,froakie];
+  const wildArr = [pikachu,froakie,chimchar,totodile];
   //create an array of the pokemon we will battle with
   const ourArr = [squirtle,bellsprout,charmander];
   //create a function that will randomly select our opponent.
@@ -184,19 +186,18 @@ const game = {
          game.showOurPokeSpecs();
     })
   }
-    else if(game.rounds <=3) {
+    else {
     game.roundCounter();
     ourPoke.hp += 1000;
     wildPoke = chooseWildPoke()
     wildPoke.hp = 100
     alert('Wild ' + wildPoke.name + ' appeared!')
+    $('#wildPoke').children().eq(0).remove()
     $('#wildPoke').append(wildPoke.img)
     game.showOurPokeSpecs()
     game.showWildPokeSpecs()
     }
-    else {
-      game.gameWinner();
-    }
+
   },
   showOurPokeSpecs(){
     $('#ourPokeSpecs').css('display','inline-block')
