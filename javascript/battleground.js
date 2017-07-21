@@ -156,7 +156,9 @@ const game = {
       }
   },
   gameWinner(){
+    if(game.rounds > 3){
     createModal('YOU HAVE BEATEN THE GAME, YOU ARE THE ONE TRUE POKÉMON MASTER!')
+    }
   },
   start(){ //conditionals for rounds
     if(this.rounds === 1){
