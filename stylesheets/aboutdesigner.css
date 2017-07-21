@@ -1,0 +1,20 @@
+body {
+  background-image: url('../img/aboutbackground.jpg');
+}
+.header{
+  color: white;
+  text-align: center;
+
+}
+ul {
+  list-style-type: none;
+  display: inline-block;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+video {
+  border-radius: 3%;
+  border: 2px solid darkgrey;
+}
