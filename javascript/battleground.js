@@ -24,9 +24,9 @@ let wildPoke = " ";
       if(this.poketype === "water"){
         if(Math.random() < this.accuracy){
           wildPoke.hp -= 22;
-          createModal('Water gun was v effective, ' + wildPoke.name + ' loses 22 hp');
+          createModal(this.name + ' used water gun. It was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){
-            createModal('Water gun was very effective. ' + wildPoke.name + ' fainted.' );
+            createModal(this.name + ' used water gun. It was very effective. ' + wildPoke.name + ' fainted.' );
             game.checkBattleWinner();
             this.coin +=325;
           }
@@ -35,15 +35,15 @@ let wildPoke = " ";
           }
         }
           else {
-            createModal('attack missed!');
+            createModal(this.name + ' missed!');
           }
       }
       else if (this.poketype === "grass"){
         if(Math.random() < this.accuracy){
           wildPoke.hp -= 22;
-          createModal('Razor leaf was v effective, ' + wildPoke.name + ' loses 22 hp');
+          createModal(this.name + ' used razor leaf. It was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){
-            createModal('Razor leaf was very effective. ' + wildPoke.name + ' fainted.');
+            createModal(this.name + ' used razor leaf. It was very effective. ' + wildPoke.name + ' fainted.');
             game.checkBattleWinner();
             this.coin +=325;
           }
@@ -58,9 +58,9 @@ let wildPoke = " ";
       else if (this.poketype === "fire"){
         if(Math.random() < this.accuracy){
           wildPoke.hp -= 22;
-          createModal('Fireball was v effective, ' + wildPoke.name + ' loses 22 hp');
+          createModal(this.name + ' used fireball. It was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){
-            createModal('Fireball was very effective. ' + wildPoke.name + ' fainted.');
+            createModal(this.name + ' used fireball. It was very effective. ' + wildPoke.name + ' fainted.');
             this.coin +=325;
             game.checkBattleWinner();
           }
@@ -76,9 +76,9 @@ let wildPoke = " ";
       else if (this.poketype === "electric"){
         if(Math.random() < this.accuracy){
           wildPoke.hp -= 22;
-          createModal('lightning strike was v effective, ' + wildPoke.name + ' loses 22 hp');
+          createModal(this.name + ' used lightning strike. It was v effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){
-            createModal('lightning strike was very effective. ' + wildPoke.name + ' fainted.');
+            createModal(this.name + ' used lightning strike. It was very effective. ' + wildPoke.name + ' fainted.');
             game.checkBattleWinner();
             this.coin +=325;
           }
@@ -127,27 +127,29 @@ const game = {
     else {
       createModal('YOU WON THE BATTLE FUCK YES!');
       game.rounds ++;
-      const newRound = prompt('Ready for the next round?');
-      if(newRound === 'yes'){
+      createModal('Ready for the next round?', 'yes');
+      $('#message-modal').children().eq(1).css('display','inline-block')
+      $('#message-modal').children().eq(1).on('click', () => {
         createModal('Round ' + this.rounds + ' begin!');
         game.start();
+      })
+      // else {
+      //   let restart = prompt('Would you like to restart?', 'yes/no');
+      //    if(restart === 'yes'){
+      //      createModal('need to refresh battleground page/take them back to index.html')
+      //
+      //    }
+        //  else{
+        //    createModal('back to index.html you go');
+        //  }
       }
-      else {
-        let restart = prompt('Would you like to restart?', 'yes/no');
-         if(restart === 'yes'){
-           createModal('need to refresh battleground page/take them back to index.html')
-
-         }
-         else{
-           createModal('back to index.html you go');
-         }
-      }
-    }
+    //}
   },
   overMessage(){
     createModal('game over sucka');
-     let restart = prompt('Would you like to restart?', 'yes/no');
+     let restart = createModal('Would you like to restart?', 'yes', 'no');
       if(restart === 'yes'){
+        //$('#message-modal').children().eq(1).css('display','inline-block')
         createModal('need to refresh battleground page/take them back to index.html')
 
       }
@@ -172,8 +174,8 @@ const game = {
       const $attackButton = $('<button>A T T A C K</button>');
       //remove the battle button
       $('#battle').remove();
-      //attach the button to our pokemon
-      $('#ourPoke').append($attackButton);
+      //attach the button to our message modal
+      $('#ourPokeSpecs').append($attackButton);
       this.showOurPokeSpecs()
       this.showWildPokeSpecs()
       this.roundCounter()
@@ -186,6 +188,9 @@ const game = {
          wildPoke.getAccuracy();
          wildPoke.attack(ourPoke);
          game.showOurPokeSpecs();
+//THIS IS WHERE YOU WERE MESSING WITH GETTING THE ATTACK BUTTON ON THE MODAL.
+//FUCK
+         $('#ourPokeSpecs').append($attackButton)
     })
   }
     else {
@@ -228,23 +233,26 @@ const game = {
 //Modal function where all messages will go
 //********************
 
-const createModal = (message) => {
+const createModal = (message, button1, button2) => {
 
-  //const $message = $('<div/>').addClass('message')
+
   $('#message-modal').html('<div>' + message + '</div>')
   $('#message-modal').css('font-family','fantasy')
   $('#message-modal').css('color', 'white')
   $('#message-modal').css('background-color','black')
   $('#message-modal').css('border','2px dotted white')
   $('#message-modal').css('border-radius', '3%')
-  $('#message-modal').css('font-size','36px')
+  $('#message-modal').css('font-size','18px')
   $('#message-modal').css('display','inline-block')
   $('#message-modal').css('position','absolute')
   $('#message-modal').css('zIndex', '1')
   $('#message-modal').css('width', '30%')
   $('#message-modal').css('textAlign', 'center')
   $('#message-modal').css('display','inline-block')
-  //$('#message-modal').append($message);
+
+  $('#message-modal').append('<button>' + button1 + '</button>')
+  $('#message-modal').children().eq(1).css('display', 'none')
+
 
 }
 
@@ -258,9 +266,6 @@ $('#ready').on('click', function(){
   $('#ourPoke').append(ourPoke.img);
   //tells us who are pokemon is going to be
   createModal('Your pokémon is ' + ourPoke.name)
-
-  //alert('Your pokémon is ' + ourPoke.name);
-
   // creates and attachs our battle button, when clicked will run the start().
   const $battleButton = $('<button>Battle!</button>').attr('id', 'battle');
   $('.container').append($battleButton);

@@ -3,7 +3,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  overflow: hidden;
+  height: 100%;
+  
 }
 #header {
   font-family: fantasy;
@@ -74,6 +75,7 @@ img {
   border: 2px dotted black;
   display: none;
   font-family: fantasy;
+  margin-bottom: 10%;
 
 }
 #ourPokeSpecs h1 {
@@ -88,6 +90,7 @@ img {
     font-family: fantasy;
     display: none;
     margin-left: 55%;
+    margin-bottom: 10%;
 }
 #wildPokeSpecs h1 {
   text-align: center;
@@ -95,6 +98,9 @@ img {
 #message-modal {
   animation: blink .5s step-end infinite alternate;
   display: none;
+  width: 30%;
+  height: 30%;
+  margin-bottom: 10%;
 }
 
 @keyframes blink {
