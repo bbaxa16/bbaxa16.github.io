@@ -145,18 +145,20 @@ const game = {
       }
     //}
   },
-  overMessage(){
+  overMessage(){ //needs to be tested
     createModal('game over sucka');
-     let restart = createModal('Would you like to restart?', 'yes', 'no');
-      if(restart === 'yes'){
-        //$('#message-modal').children().eq(1).css('display','inline-block')
-        createModal('need to refresh battleground page/take them back to index.html')
-
-      }
-      else{
-        createModal('back to index.html you go');
-      }
-  },
+    $('#message-modal').on('click', () =>{
+    createModal('Would you like to restart?', 'yes', 'no');
+    $('#message-modal').children().eq(1).css('display','inline-block')
+    $('#message-modal').children().eq(1).on('click', () => {
+      createModal('need to refresh battleground page/take them back to index.html')
+    })
+      $('#message-modal').children().eq(2).css('display','inline-block')
+      $('#message-modal').children().eq(2).on('click', () => {
+        createModal('back to index.html you go') //or do we want this to start round 2?
+    })
+  })
+},
   gameWinner(){
     if(game.rounds > 3){
     createModal('YOU HAVE BEATEN THE GAME, YOU ARE THE ONE TRUE POKÉMON MASTER!')
