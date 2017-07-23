@@ -125,14 +125,14 @@ const game = {
       this.overMessage();
     }
     else {
-      createModal('YOU WON THE BATTLE FUCK YES!');
-      game.rounds ++;
-      createModal('Ready for the next round?', 'yes');
+      createModal('YOU WON THE BATTLE FUCK YES! Ready for the next round?', 'yes')
+      game.rounds ++
       $('#message-modal').children().eq(1).css('display','inline-block')
       $('#message-modal').children().eq(1).on('click', () => {
-        createModal('Round ' + this.rounds + ' begin!');
+        createModal('Round ' + this.rounds + ' begin!')
         game.start();
       })
+      $('#message-modal').off()
       // else {
       //   let restart = prompt('Would you like to restart?', 'yes/no');
       //    if(restart === 'yes'){
@@ -260,7 +260,7 @@ const createModal = (message, button1, button2) => {
   $('#message-modal').css('display','inline-block')
 
   $('#message-modal').append('<button>' + button1 + '</button>')
-  //$('#message-modal').children().eq(1).css('display', 'none')
+  $('#message-modal').children().eq(1).css('display', 'none')
   //$('#message-modal').on('click', () => {
     // $('#message-modal').children().eq(0).text(message)
     // $('#message-modal').children().eq(0).css('display','block')
