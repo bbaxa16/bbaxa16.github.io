@@ -125,6 +125,10 @@ const game = {
       this.overMessage();
     }
     else {
+      if (game.rounds > 2){
+      game.gameWinner()
+      }
+      else {
       createModal('YOU WON THE BATTLE FUCK YES! Ready for the next round?', 'yes')
       game.rounds ++
       $('#message-modal').children().eq(1).css('display','inline-block')
@@ -133,6 +137,7 @@ const game = {
         game.start();
       })
       $('#message-modal').off()
+      }
       // else {
       //   let restart = prompt('Would you like to restart?', 'yes/no');
       //    if(restart === 'yes'){
@@ -146,9 +151,8 @@ const game = {
     //}
   },
   overMessage(){ //needs to be adjusted
-    createModal('game over sucka');
-    $('#message-modal').on('click', () =>{
-    createModal('Would you like to restart?', 'yes', 'no');
+    createModal('game over sucka, would you like to restart?', 'yes', 'no')
+    $('#message-modal').off()
     $('#message-modal').children().eq(1).css('display','inline-block')
     $('#message-modal').children().eq(1).on('click', () => {
       createModal('need to refresh battleground page/take them back to index.html')
@@ -157,12 +161,9 @@ const game = {
       $('#message-modal').children().eq(2).on('click', () => {
         createModal('back to index.html you go') //or do we want this to start round 2?
     })
-  })
 },
   gameWinner(){
-    if(game.rounds > 3){
     createModal('YOU HAVE BEATEN THE GAME, YOU ARE THE ONE TRUE POKÉMON MASTER!')
-    }
   },
   start(){ //conditionals for rounds
     if(this.rounds === 1){
