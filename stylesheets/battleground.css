@@ -10,6 +10,7 @@ body {
   font-family: fantasy;
   font-size: larger;
   width: 100%;
+  line-height: 2px;
   text-align: center;
 }
 #header a {
@@ -29,6 +30,7 @@ body {
   width: 15%;;
   display: none;
   margin-left: 42%;
+  margin-top: 2%;
 }
 .container {
   width: 70vw;
@@ -77,8 +79,9 @@ img {
   display: inline-block;
 }
 #ourPokeSpecs {
-  width: 150px;
-  height: 150px;
+  width: 20%;
+  height: 25%;
+  float: left;
   background-color: white;
   border-radius: 3%;
   border: 2px dotted black;
@@ -92,13 +95,13 @@ img {
 }
 #wildPokeSpecs {
     width: 20%;
-    height: 26vh;
+    height: 25%;
     background-color: white;
     border-radius: 3%;
     border: 2px dotted black;
     font-family: fantasy;
     display: none;
-    margin-left: 55%;
+    float: right;
     margin-bottom: 10%;
 }
 #wildPokeSpecs h1 {
@@ -110,6 +113,7 @@ img {
   width: 30%;
   height: 25%;
   margin-bottom: 10%;
+  position: absolute;
 }
 
 @keyframes blink {

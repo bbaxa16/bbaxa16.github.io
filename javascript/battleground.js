@@ -214,6 +214,7 @@ const game = {
     $('#ourPokeSpecs').children().eq(1).children().eq(0).html('hp: ' + ourPoke.hp)
     $('#ourPokeSpecs').children().eq(1).children().eq(1).html('level: ' + ourPoke.level)
     $('#ourPokeSpecs').children().eq(1).children().eq(2).html('pokétype: ' + ourPoke.poketype)
+    $('#message-modal').css('margin-left','12%')
 
 
   },
@@ -245,6 +246,7 @@ const createModal = (message, button1, button2) => {
   $('#message-modal').css('border','2px dotted white')
   $('#message-modal').css('border-radius', '3%')
   $('#message-modal').css('font-size','18px')
+  $('#message-modal').css('margin-left','34%')
   $('#message-modal').css('display','inline-block')
   $('#message-modal').css('position','absolute')
   $('#message-modal').css('zIndex', '1')
