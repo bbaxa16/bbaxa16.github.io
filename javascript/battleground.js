@@ -3,7 +3,7 @@ $(()=>{ //window onload
 //global variables
 let ourPoke = " ";
 let wildPoke = " ";
-
+let $attackButton = $('<button>A T T A C K</button>')
 
   class Pokemon { //creating a pokemon class
     constructor (name, level, poketype, img){
@@ -132,11 +132,18 @@ const game = {
       createModal('YOU WON THE BATTLE FUCK YES! Ready for the next round?', 'yes')
       game.rounds ++
       $('#message-modal').children().eq(1).css('display','inline-block')
+      console.log('rounds: ' + game.rounds);
       $('#message-modal').children().eq(1).on('click', () => {
-        createModal('Round ' + this.rounds + ' begin!')
-        game.start();
-      })
-      $('#message-modal').off()
+          console.log('my yes button worked');
+          createModal('Round ' + this.rounds + ' begin!', 'start')
+          $('#message-modal').off()
+          $('#message-modal').css('margin-left','12%')
+          $('#message-modal').children().eq(1).css('display', 'inline-block')
+          $('#message-modal').children().eq(1).on('click', ()=>{
+            game.start()
+          })
+       })
+       $('#message-modal').off()
       }
       // else {
       //   let restart = prompt('Would you like to restart?', 'yes/no');
@@ -166,7 +173,7 @@ const game = {
     createModal('YOU HAVE BEATEN THE GAME, YOU ARE THE ONE TRUE POKÉMON MASTER!')
   },
   start(){ //conditionals for rounds
-    if(this.rounds === 1){
+      if(this.rounds === 1){
       //chooses the wild pokemon we will battle
       wildPoke = chooseWildPoke();
       //alerts us which pokemon has been chosen
@@ -174,15 +181,15 @@ const game = {
       //attachs the wild pokemon img to its respective div
       $('#wildPoke').append(wildPoke.img).addClass('wildPoke');
       //create an attack button that will first get our accuracy, then attack the enemy poke. they will then attack too.
-      const $attackButton = $('<button>A T T A C K</button>');
+    //$attackButton = $('<button>A T T A C K</button>');
       //remove the battle button
       $('#battle').remove();
-      //attach the button to our message modal
+      //attach the button to our attack button
       $('#ourPokeSpecs').append($attackButton);
       this.showOurPokeSpecs()
       this.showWildPokeSpecs()
       this.roundCounter()
-      //create an eventlistener for this button, and have a attackbutton method that runs all the game functions we need it to?
+      //create an eventlistener on our attack button that will attack our opponent and generate their retaliation.
       $($attackButton).on('click', function(){
          //ourPoke.getAccuracy();
          ourPoke.accuracy = 2;
@@ -196,21 +203,38 @@ const game = {
          $('#message-modal').off()
        })
 //appends the attack button to our poke specs
-         $('#ourPokeSpecs').append($attackButton)
+        //  $('#ourPokeSpecs').append($attackButton)
     })
   }
     else {
-    game.roundCounter();
-    ourPoke.hp += 1000;
+    ourPoke.hp += 1000
+    ourPoke.accuracy = 2
     wildPoke = chooseWildPoke()
     wildPoke.hp = 100
     createModal('Wild ' + wildPoke.name + ' appeared!')
     $('#wildPoke').children().eq(0).remove()
     $('#wildPoke').append(wildPoke.img)
+    //removes the first attack button
+    $('#ourPokeSpecs').children().eq(2).remove()
+    //adds the new one
+    $('#ourPokeSpecs').append($attackButton);
     game.showOurPokeSpecs()
     game.showWildPokeSpecs()
+    game.roundCounter()
+    $($attackButton).on('click', function(){
+       //ourPoke.getAccuracy();
+       ourPoke.accuracy = 2;
+       ourPoke.attack(wildPoke)
+       game.showWildPokeSpecs()
+       wildPoke.getAccuracy()
+       //add a eventlistener to our message modal so we see all the messages...
+       $('#message-modal').on('click', ()=>{
+       wildPoke.attack(ourPoke)
+       game.showOurPokeSpecs()
+       $('#message-modal').off()
+      })
+    })
     }
-
   },
   showOurPokeSpecs(){
     $('#ourPokeSpecs').css('display','inline-block')
