@@ -105,7 +105,7 @@ let wildPoke = " ";
   //create an array of the pokemon we will battle
   const wildArr = [pikachu,froakie,chimchar,totodile];
   //create an array of the pokemon we will battle with
-  const ourArr = [squirtle,bellsprout,charmander];
+  const ourArr = [squirtle] //dont forget to add back in charmander and bellsprout
   //create a function that will randomly select our opponent.
   const chooseWildPoke = () => {
       let wildPoke = wildArr[Math.floor(Math.random()* wildArr.length)];
@@ -145,7 +145,7 @@ const game = {
       }
     //}
   },
-  overMessage(){ //needs to be tested
+  overMessage(){ //needs to be adjusted
     createModal('game over sucka');
     $('#message-modal').on('click', () =>{
     createModal('Would you like to restart?', 'yes', 'no');
@@ -185,13 +185,16 @@ const game = {
       $($attackButton).on('click', function(){
          //ourPoke.getAccuracy();
          ourPoke.accuracy = 2;
-         ourPoke.attack(wildPoke);
-         game.showWildPokeSpecs();
-         wildPoke.getAccuracy();
-         wildPoke.attack(ourPoke);
-         game.showOurPokeSpecs();
-//THIS IS WHERE YOU WERE MESSING WITH GETTING THE ATTACK BUTTON ON THE MODAL.
-//FUCK
+         ourPoke.attack(wildPoke)
+         game.showWildPokeSpecs()
+         wildPoke.getAccuracy()
+         //add a eventlistener to our message modal so we see all the messages...
+         $('#message-modal').on('click', ()=>{
+         wildPoke.attack(ourPoke)
+         game.showOurPokeSpecs()
+         $('#message-modal').off()
+       })
+//appends the attack button to our poke specs
          $('#ourPokeSpecs').append($attackButton)
     })
   }
@@ -224,6 +227,7 @@ const game = {
     $('#wildPokeSpecs').children().eq(1).children().eq(0).html('hp: ' + wildPoke.hp)
     $('#wildPokeSpecs').children().eq(1).children().eq(1).html('level: ' + wildPoke.level)
     $('#wildPokeSpecs').children().eq(1).children().eq(2).html('pokétype: ' + wildPoke.poketype)
+    $('#message-modal').css('margin-left','12%')
 
   },
   roundCounter(){
@@ -238,8 +242,9 @@ const game = {
 
 const createModal = (message, button1, button2) => {
 
-
   $('#message-modal').html('<div>' + message + '</div>')
+  //$('#message-modal').html('<div/>')
+  //$('#message-modal').children().css('display','none')
   $('#message-modal').css('font-family','fantasy')
   $('#message-modal').css('color', 'white')
   $('#message-modal').css('background-color','black')
@@ -255,7 +260,11 @@ const createModal = (message, button1, button2) => {
   $('#message-modal').css('display','inline-block')
 
   $('#message-modal').append('<button>' + button1 + '</button>')
-  $('#message-modal').children().eq(1).css('display', 'none')
+  //$('#message-modal').children().eq(1).css('display', 'none')
+  //$('#message-modal').on('click', () => {
+    // $('#message-modal').children().eq(0).text(message)
+    // $('#message-modal').children().eq(0).css('display','block')
+  //})
 
 
 }
