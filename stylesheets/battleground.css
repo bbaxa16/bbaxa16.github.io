@@ -108,12 +108,19 @@ img {
   text-align: center;
 }
 #message-modal {
-  animation: blink .5s step-end infinite alternate;
   display: none;
   width: 30%;
   height: 25%;
   margin-bottom: 10%;
   position: absolute;
+}
+.animation {
+  animation: blink .5s step-end infinite alternate;
+  width: 30%;
+  height: 25%;
+  margin-bottom: 10%;
+  position: absolute;
+
 }
 
 @keyframes blink {

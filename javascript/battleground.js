@@ -196,14 +196,13 @@ const game = {
          ourPoke.attack(wildPoke)
          game.showWildPokeSpecs()
          wildPoke.getAccuracy()
+         $('#message-modal').addClass('animation')
          //add a eventlistener to our message modal so we see all the messages...
          $('#message-modal').on('click', ()=>{
          wildPoke.attack(ourPoke)
          game.showOurPokeSpecs()
          $('#message-modal').off()
        })
-//appends the attack button to our poke specs
-        //  $('#ourPokeSpecs').append($attackButton)
     })
   }
     else {
