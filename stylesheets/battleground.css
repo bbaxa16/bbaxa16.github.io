@@ -55,8 +55,8 @@ body {
   font-weight:bold;
   padding:9px 23px;
   text-shadow:0px -1px 0px #7a2a1d;
-  margin-top: 22%;
-  margin-left: 17%;
+  margin-top: 18%;
+  margin-right: 5%;
 
 }
 img {
@@ -70,7 +70,25 @@ img {
   display: inline-block;
 }
 #battle {
-  margin-right: 60%;
+  padding: 10px 50px;
+  display: inline-block;
+  margin-right: 48%;
+  margin-top: 15%;
+  background-color: blue;
+  color: white;
+  font-family: monospace;
+  font-size: larger;
+  border: 1px solid  #241d13;
+}
+#attack {
+  display: inline-block;
+  background-color: blue;
+  color: white;
+  font-family: monospace;
+  font-size: larger;
+  border: 1px solid  #241d13;
+  margin-bottom: 3%;
+  margin-left: 20%;
 }
 #wildPoke {
   margin-top: 130px;
@@ -115,10 +133,6 @@ img {
 }
 .animation {
   animation: blink .5s step-end infinite alternate;
-  width: 30%;
-  height: 25%;
-  margin-bottom: 10%;
-  position: absolute;
 }
 button {
   text-decoration: none;
