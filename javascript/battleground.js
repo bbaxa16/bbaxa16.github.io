@@ -1,10 +1,14 @@
 $(()=>{ //window onload
-
+//****************
 //global variables
+//****************
 let ourPoke = " ";
 let wildPoke = " ";
 let $attackButton = $('<button>A T T A C K</button>').attr('id','attack').addClass('animation')
-
+//****************
+//Pokemon class where
+//all our pokemon functions are housed
+//****************
   class Pokemon { //creating a pokemon class
     constructor (name, level, poketype, img){
       this.name = name;
@@ -24,7 +28,7 @@ let $attackButton = $('<button>A T T A C K</button>').attr('id','attack').addCla
       if(this.poketype === "water"){
         if(Math.random() < this.accuracy){
           wildPoke.hp -= 22;
-          createModal(this.name + ' used water gun. It was v effective, ' + wildPoke.name + ' loses 22 hp');
+          createModal(this.name + ' used water gun. It was very effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){
             createModal(this.name + ' used water gun. It was very effective. ' + wildPoke.name + ' fainted.' );
             game.checkBattleWinner();
@@ -41,7 +45,7 @@ let $attackButton = $('<button>A T T A C K</button>').attr('id','attack').addCla
       else if (this.poketype === "grass"){
         if(Math.random() < this.accuracy){
           wildPoke.hp -= 22;
-          createModal(this.name + ' used razor leaf. It was v effective, ' + wildPoke.name + ' loses 22 hp');
+          createModal(this.name + ' used razor leaf. It was very effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){
             createModal(this.name + ' used razor leaf. It was very effective. ' + wildPoke.name + ' fainted.');
             game.checkBattleWinner();
@@ -58,7 +62,7 @@ let $attackButton = $('<button>A T T A C K</button>').attr('id','attack').addCla
       else if (this.poketype === "fire"){
         if(Math.random() < this.accuracy){
           wildPoke.hp -= 22;
-          createModal(this.name + ' used fireball. It was v effective, ' + wildPoke.name + ' loses 22 hp');
+          createModal(this.name + ' used fireball. It was very effective, ' + wildPoke.name + ' loses 22 hp');
           if(wildPoke.hp <= 0){
             createModal(this.name + ' used fireball. It was very effective. ' + wildPoke.name + ' fainted.');
             this.coin +=325;
@@ -92,8 +96,10 @@ let $attackButton = $('<button>A T T A C K</button>').attr('id','attack').addCla
       }
     }
   }
+// **********************
+// creating all the different pokemon.
+// **********************
 
-  //creating all the different pokemon.
   const pikachu = new Pokemon("pikachu", 1, "electric", $('<img src="../img/pikachu.png">').addClass('pokeImages'))
   const charmander = new Pokemon("charmander", 1, "fire", $('<img src="../img/charmander.png">').addClass('pokeImages'))
   const squirtle = new Pokemon("squirtle", 1, "water", $('<img src="../img/squirtle.png">').addClass('pokeImages'))
@@ -105,7 +111,7 @@ let $attackButton = $('<button>A T T A C K</button>').attr('id','attack').addCla
   //create an array of the pokemon we will battle
   const wildArr = [pikachu,froakie,chimchar,totodile];
   //create an array of the pokemon we will battle with
-  const ourArr = [squirtle] //dont forget to add back in charmander and bellsprout
+  const ourArr = [squirtle,charmander,bellsprout]
   //create a function that will randomly select our opponent.
   const chooseWildPoke = () => {
       let wildPoke = wildArr[Math.floor(Math.random()* wildArr.length)];
@@ -129,7 +135,7 @@ const game = {
       game.gameWinner()
       }
       else {
-      createModal('YOU WON THE BATTLE FUCK YES! Ready for the next round?', 'yes', 'no')
+      createModal('YOU WON THE BATTLE! Ready for the next round?', 'yes', 'no')
       game.rounds ++
       $('#message-modal').children().eq(1).css('display','inline-block')
       $('#message-modal').children().eq(2).css('display','inline-block')
@@ -159,8 +165,8 @@ const game = {
       }
     }
   },
-  overMessage(){
-    createModal('game over sucka, would you like to restart?', 'yes', 'no')
+  overMessage(){ //if you run out of lives
+    createModal('Your pokémon fainted, Game over! would you like to restart?', 'yes', 'no')
     $('#message-modal').off()
     $('#message-modal').children().eq(1).css('display','inline-block')
     $('#message-modal').children().eq(1).on('click', () => {
@@ -191,8 +197,7 @@ const game = {
       this.roundCounter()
       //create an eventlistener on our attack button that will attack our opponent and generate their retaliation.
       $($attackButton).on('click', function(){
-         //ourPoke.getAccuracy();
-         ourPoke.accuracy = 2
+         ourPoke.getAccuracy()
          ourPoke.attack(wildPoke)
          game.showWildPokeSpecs()
          wildPoke.getAccuracy()
@@ -206,8 +211,8 @@ const game = {
     })
   }
     else {
-    ourPoke.hp += 1000
-    ourPoke.accuracy = 2
+    ourPoke.hp += 100
+    ourPoke.getAccuracy()
     wildPoke = chooseWildPoke()
     wildPoke.hp = 100
     wildPoke.getAccuracy()
@@ -268,8 +273,7 @@ const game = {
 const createModal = (message, button1, button2) => {
 
   $('#message-modal').html('<div>' + message + '</div>')
-  //$('#message-modal').html('<div/>')
-  //$('#message-modal').children().css('display','none')
+  //message modal styling
   $('#message-modal').css('font-family','fantasy')
   $('#message-modal').css('color', 'white')
   $('#message-modal').css('background-color','black')
@@ -283,20 +287,16 @@ const createModal = (message, button1, button2) => {
   $('#message-modal').css('width', '30%')
   $('#message-modal').css('textAlign', 'center')
   $('#message-modal').css('display','inline-block')
-
+  //appending buttons to the message modal
   $('#message-modal').append('<button>' + button1 + '</button>')
   $('#message-modal').children().eq(1).css('display', 'none')
   $('#message-modal').append('<button>' + button2 + '</button>')
   $('#message-modal').children().eq(2).css('display', 'none')
-  //$('#message-modal').on('click', () => {
-    // $('#message-modal').children().eq(0).text(message)
-    // $('#message-modal').children().eq(0).css('display','block')
-  //})
-
-
 }
+//***************************************
 
-//The very first button thats pressed on this page
+
+//The very first button that's pressed on this page
 $('#ready').on('click', function(){
   //selects our pokemon we will battle with
   ourPoke = chooseOurPoke()
@@ -308,14 +308,6 @@ $('#ready').on('click', function(){
   createModal('Your pokémon is ' + ourPoke.name)
   // creates and attachs our battle button, when clicked will run the start().
   const $battleButton = $('<button>Battle!</button>').attr('id', 'battle')
-  // $($battleButton).css('padding','10px 50px')
-  // $($battleButton).css('display','inline-block')
-  // $($battleButton).css('margin-left', '33%')
-  // $($battleButton).css('background-color','blue')
-  // $($battleButton).css('color','white')
-  // $($battleButton).css('font-family','monospace')
-  // $($battleButton).css('font-size','larger')
-  // $($battleButton).css('border','1px solid #241d13')
   $('.container').append($battleButton)
   $($battleButton).on('click', function(){
     game.start();
