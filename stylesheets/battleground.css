@@ -46,9 +46,6 @@ body {
 
   padding: 10px 100px;
   font-family: monospace;
-  -moz-box-shadow:inset 0px 34px 0px -15px #a63624;
-  -webkit-box-shadow:inset 0px 34px 0px -15px #a63624;
-  box-shadow:inset 0px 34px 0px -15px #a63624;
   background-color:#a73f2d;
   border:1px solid #241d13;
   display:inline-block;
@@ -58,6 +55,8 @@ body {
   font-weight:bold;
   padding:9px 23px;
   text-shadow:0px -1px 0px #7a2a1d;
+  margin-top: 22%;
+  margin-left: 17%;
 
 }
 img {
@@ -120,7 +119,9 @@ img {
   height: 25%;
   margin-bottom: 10%;
   position: absolute;
-
+}
+button {
+  text-decoration: none;
 }
 
 @keyframes blink {

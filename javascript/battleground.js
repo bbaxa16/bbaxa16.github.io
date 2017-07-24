@@ -129,12 +129,11 @@ const game = {
       game.gameWinner()
       }
       else {
-      createModal('YOU WON THE BATTLE FUCK YES! Ready for the next round?', 'yes')
+      createModal('YOU WON THE BATTLE FUCK YES! Ready for the next round?', 'yes', 'no')
       game.rounds ++
       $('#message-modal').children().eq(1).css('display','inline-block')
-      console.log('rounds: ' + game.rounds);
+      $('#message-modal').children().eq(2).css('display','inline-block')
       $('#message-modal').children().eq(1).on('click', () => {
-          console.log('my yes button worked');
           createModal('Round ' + this.rounds + ' begin!', 'start')
           $('#message-modal').off()
           $('#message-modal').css('margin-left','12%')
@@ -144,29 +143,32 @@ const game = {
           })
        })
        $('#message-modal').off()
+       $('#message-modal').children().eq(2).on('click', ()=>{
+         createModal('Would you like to restart?', 'yes', 'no')
+         $('#message-modal').off()
+         $('#message-modal').css('margin-left','12%')
+         $('#message-modal').children().eq(1).css('display','inline-block')
+         $('#message-modal').children().eq(1).on('click', () => {
+           $('#message-modal').children().eq(1).html('<a href="battleground.html">yes</a>')
+         })
+           $('#message-modal').children().eq(2).css('display','inline-block')
+           $('#message-modal').children().eq(2).on('click', () => {
+             $('#message-modal').children().eq(2).html('<a href="../index.html">no</a>')
+         })
+       })
       }
-      // else {
-      //   let restart = prompt('Would you like to restart?', 'yes/no');
-      //    if(restart === 'yes'){
-      //      createModal('need to refresh battleground page/take them back to index.html')
-      //
-      //    }
-        //  else{
-        //    createModal('back to index.html you go');
-        //  }
-      }
-    //}
+    }
   },
-  overMessage(){ //needs to be adjusted
+  overMessage(){
     createModal('game over sucka, would you like to restart?', 'yes', 'no')
     $('#message-modal').off()
     $('#message-modal').children().eq(1).css('display','inline-block')
     $('#message-modal').children().eq(1).on('click', () => {
-      createModal('need to refresh battleground page/take them back to index.html')
+      $('#message-modal').children().eq(1).html('<a href="battleground.html">yes</a>')
     })
       $('#message-modal').children().eq(2).css('display','inline-block')
       $('#message-modal').children().eq(2).on('click', () => {
-        createModal('back to index.html you go') //or do we want this to start round 2?
+        $('#message-modal').children().eq(2).html('<a href="../index.html">no</a>')
     })
 },
   gameWinner(){
@@ -180,8 +182,6 @@ const game = {
       createModal('Wild ' + wildPoke.name + ' appeared!');
       //attachs the wild pokemon img to its respective div
       $('#wildPoke').append(wildPoke.img).addClass('wildPoke');
-      //create an attack button that will first get our accuracy, then attack the enemy poke. they will then attack too.
-    //$attackButton = $('<button>A T T A C K</button>');
       //remove the battle button
       $('#battle').remove();
       //attach the button to our attack button
@@ -192,7 +192,7 @@ const game = {
       //create an eventlistener on our attack button that will attack our opponent and generate their retaliation.
       $($attackButton).on('click', function(){
          //ourPoke.getAccuracy();
-         ourPoke.accuracy = 2;
+         ourPoke.accuracy = 2
          ourPoke.attack(wildPoke)
          game.showWildPokeSpecs()
          wildPoke.getAccuracy()
@@ -210,23 +210,24 @@ const game = {
     ourPoke.accuracy = 2
     wildPoke = chooseWildPoke()
     wildPoke.hp = 100
+    wildPoke.getAccuracy()
     createModal('Wild ' + wildPoke.name + ' appeared!')
     $('#wildPoke').children().eq(0).remove()
     $('#wildPoke').append(wildPoke.img)
     //removes the first attack button
     $('#ourPokeSpecs').children().eq(2).remove()
-    //adds the new one
+    //adds the new attak button
     $('#ourPokeSpecs').append($attackButton);
     game.showOurPokeSpecs()
     game.showWildPokeSpecs()
     game.roundCounter()
     $($attackButton).on('click', function(){
        //ourPoke.getAccuracy();
-       ourPoke.accuracy = 2;
+       ourPoke.getAccuracy()
        ourPoke.attack(wildPoke)
        game.showWildPokeSpecs()
        wildPoke.getAccuracy()
-       //add a eventlistener to our message modal so we see all the messages...
+       //add a eventlistener to our message modal so we see all the messages
        $('#message-modal').on('click', ()=>{
        wildPoke.attack(ourPoke)
        game.showOurPokeSpecs()
@@ -285,6 +286,8 @@ const createModal = (message, button1, button2) => {
 
   $('#message-modal').append('<button>' + button1 + '</button>')
   $('#message-modal').children().eq(1).css('display', 'none')
+  $('#message-modal').append('<button>' + button2 + '</button>')
+  $('#message-modal').children().eq(2).css('display', 'none')
   //$('#message-modal').on('click', () => {
     // $('#message-modal').children().eq(0).text(message)
     // $('#message-modal').children().eq(0).css('display','block')
