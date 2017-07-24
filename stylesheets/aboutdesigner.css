@@ -1,5 +1,6 @@
 body {
   background-image: url('../img/aboutbackground.jpg');
+  overflow: hidden;
 }
 .header{
   color: white;
@@ -34,13 +35,31 @@ body {
 video {
   border-radius: 3%;
   border: 2px solid darkgrey;
+  margin-left: 25%;
+
+}
+p {
+  width: 40%;
+  height: 150px;
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  line-height: 25px;
+  padding: 5px;
+  background-color: black;
+  border-radius: 5%;
+  margin-left: 25%;
 
 }
 #footer{
   background-color: black;
   color: white;
   text-align: center;
-  height: 15%;
+  margin-top: 5%;
+  height: 10vh;
   width: 100vw;
-
+}
+img {
+  width: 75px;
+  height: 75px;
 }

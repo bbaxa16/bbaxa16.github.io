@@ -37,10 +37,11 @@ button {
  width: 30vw;
  height: 4vh;
  background-color: red;
- 
+ margin-left: 33%;
+
 }
 button a {
-  text-decoration: none;
+  cursor: pointer;
 }
 #footer {
   text-align: center;
