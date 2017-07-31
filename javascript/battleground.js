@@ -131,11 +131,12 @@ const game = {
       this.overMessage();
     }
     else {
-      if (game.rounds > 2){
+      if (game.rounds > 3){
       game.gameWinner()
       }
       else {
       createModal('YOU WON THE BATTLE! Ready for the next round?', 'yes', 'no')
+      //$($attackButton).off()
       game.rounds ++
       $('#message-modal').children().eq(1).css('display','inline-block')
       $('#message-modal').children().eq(2).css('display','inline-block')
@@ -179,6 +180,7 @@ const game = {
 },
   gameWinner(){
     createModal('YOU HAVE BEATEN THE GAME, YOU ARE THE ONE TRUE POKÉMON MASTER!')
+    $('.container').html('<iframe src="https://giphy.com/embed/vsyKKf1t22nmw" width="480" height="400" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></p>')
   },
   start(){ //conditionals for rounds
       if(this.rounds === 1){
@@ -221,7 +223,7 @@ const game = {
     $('#wildPoke').append(wildPoke.img)
     //removes the first attack button
     $('#ourPokeSpecs').children().eq(2).remove()
-    //adds the new attak button
+    //adds the new attack button
     $('#ourPokeSpecs').append($attackButton);
     game.showOurPokeSpecs()
     game.showWildPokeSpecs()
