@@ -19,7 +19,8 @@ header li {
 #banner {
   text-align: center;
 }
-#aboutme {
+#banner h1 {
+  font-size: 35px;
 }
 #x {
   height: 2%;
