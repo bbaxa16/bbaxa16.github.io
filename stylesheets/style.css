@@ -2,6 +2,7 @@
   font-family: 'Quicksand', sans-serif;
 }
 body {
+  margin: 0;
   text-align: center;
 }
 header {
@@ -11,6 +12,13 @@ header {
   opacity: .5;
   z-index: 2;
 }
+header li {
+  list-style-type: none;
+  display: inline;
+}
+#banner {
+  text-align: center;
+}
 #aboutme {
 }
 #x {
@@ -19,4 +27,12 @@ header {
   float: right;
   margin-right: 5%;
   margin-bottom: 5%;
+}
+footer {
+  width: 100vw;
+  height: 10vh;
+  background: lightgreen;
+  position: absolute;
+  bottom: 0;
+  opacity: .5;
 }
