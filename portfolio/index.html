@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8">
+    <title>B A X A</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    <script src="app.js" charset="utf-8"></script>
+  </head>
+  <body ng-controller="navCtrl as nctrl">
+    <img id='x' ng-click="nctrl.clickNav()" src="{{nctrl.src}}"/>
+    <header>
+      <nav ng-show="nctrl.showNav">
+        <ul>
+          <li>
+            <a scroll-to='aboutme'>about</a>
+          </li>
+          <li>skills</li>
+          <li>projects</li>
+          <li>contact</li>
+          <li>resume</li>
+        </ul>
+      </nav>
+    </header>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <section id='banner'>
+      <h5>WEB DEVELOPER</h5>
+      <h1>B R O O K E &nbsp;  B A X A</h1>
+      <p>Passion and the necessity for change are what mobilize me personally and professionally. My adaptive nature allows me to learn quickly and help guide my peers. I meet challenges as opportunities to create something new.</p>
+    </section>
+    <section id='aboutMe'>
+      <h1>About</h1>
+      <div>
+
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </section>
+    <section id='skills'>
+      <h1>Skills</h1>
+      <div>
+      </div>
+    </section>
+    <footer>
+    </footer>
+  </body>
+</html>

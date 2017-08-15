@@ -1,0 +1,22 @@
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+body {
+  text-align: center;
+}
+header {
+  background: lightgreen;
+  width: 100vw;
+  position: fixed;
+  opacity: .5;
+  z-index: 2;
+}
+#aboutme {
+}
+#x {
+  height: 2%;
+  width: 2%;
+  float: right;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
