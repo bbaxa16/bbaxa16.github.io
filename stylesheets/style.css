@@ -4,36 +4,51 @@
 body {
   margin: 0;
   text-align: center;
+  width: 100%;
+  background: url("https://ak2.picdn.net/shutterstock/videos/20453527/thumb/9.jpg") center center fixed;
+  background-repeat: repeat-y;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  }
+  nav {
+    background-color: #c8f7c8;
+  }
+li {
+  display: inline-block;
 }
-header {
-  background: lightgreen;
-  width: 100vw;
-  position: fixed;
-  opacity: .5;
-  z-index: 2;
+#heading {
+  background: transparent;
 }
-header li {
-  list-style-type: none;
-  display: inline;
+#me {
+
+  width: 20%;
+  min-width: 300px;
+  height: 100%;
+  border-radius: 50%;
+-moz-border-radius:50%;
+-webkit-border-radius:50%;
 }
-#banner {
-  text-align: center;
+.container {
+  background: #E9ECEF;
 }
-#banner h1 {
-  font-size: 35px;
+.blank {
+  background: transparent;
 }
-#x {
-  height: 2%;
-  width: 2%;
-  float: right;
-  margin-right: 5%;
-  margin-bottom: 5%;
+#socialMedia {
+  display: flex;
+  flex-flow: column;
+  align-content: space-between;
+
 }
+.icon {
+  width: 100px;
+  height: 100px;
+  margin: 10%;
+}
+
 footer {
   width: 100vw;
   height: 10vh;
-  background: lightgreen;
-  position: absolute;
-  bottom: 0;
-  opacity: .5;
+  background: #c8f7c8;
 }
