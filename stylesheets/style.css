@@ -41,6 +41,13 @@ li {
   align-content: space-between;
 
 }
+a {
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+  color: darkgreen;
+}
 .icon {
   width: 100px;
   height: 100px;
