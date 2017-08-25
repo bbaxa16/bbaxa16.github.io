@@ -55,7 +55,10 @@ a:hover {
 }
 
 footer {
-  width: 100vw;
-  height: 10vh;
   background: #c8f7c8;
+}
+
+#footer-container {
+  background: #c8f7c8;
+  height: 12.5vh;
 }
