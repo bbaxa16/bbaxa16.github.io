@@ -15,9 +15,6 @@ body {
   nav {
     background-color: #c8f7c8;
   }
-  #aboutMe {
-    display: inline-block;
-  }
 li {
   display: inline-block;
 }
@@ -33,10 +30,6 @@ li {
 -moz-border-radius:50%;
 -webkit-border-radius:50%;
 }
-
-#projects {
-}
-
 .container {
   background: #E9ECEF;
 }
