@@ -5,6 +5,7 @@ body {
   margin: 0;
   text-align: center;
   width: 100%;
+  height: 100%;
   background: url("https://ak2.picdn.net/shutterstock/videos/20453527/thumb/9.jpg") center center fixed;
   background-repeat: repeat-y;
   background-size: cover;
@@ -13,6 +14,9 @@ body {
   }
   nav {
     background-color: #c8f7c8;
+  }
+  #aboutMe {
+    display: inline-block;
   }
 li {
   display: inline-block;
@@ -29,9 +33,20 @@ li {
 -moz-border-radius:50%;
 -webkit-border-radius:50%;
 }
+
+#projects {
+}
+
 .container {
   background: #E9ECEF;
 }
+
+#project-img {
+  height: 10em;
+  width: 20em;
+  padding: 2%;
+}
+
 .blank {
   background: transparent;
 }
@@ -54,11 +69,19 @@ a:hover {
   margin: 10%;
 }
 
-footer {
-  background: #c8f7c8;
-}
 
 #footer-container {
   background: #c8f7c8;
-  height: 12.5vh;
+  width: 100vw;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: #c8f7c8
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20%;
+  padding: 2%;
 }

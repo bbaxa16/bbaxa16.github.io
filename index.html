@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>B A X A</title>
+    <link rel='icon' href='./stylesheets/assets/bb.png'>
     <link href="https://fonts.googleapis.com/css?family=Lato|Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheets/style.css">
@@ -11,10 +12,11 @@
   </head>
   <body ng-controller="mainCtrl as ctrl">
 
-    <nav class="navbar navbar-light bg-faded navbar-fixed=top">
+
+    <nav class="navbar fixed-top navbar-default">
       <a class="navbar-brand" href="#">
-        <img src="./stylesheets/assets/bb.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
-        <span>BROOKE</span>
+      <img src="./stylesheets/assets/bb.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
+      <span>BROOKE</span>
       </a>
       <ul>
         <li><a href="#aboutMe">about</a></li> |
@@ -23,6 +25,7 @@
         <li><a href="#contact">contact</a></li> |
       </ul>
     </nav>
+
     <section>
       <div class="jumbotron text-center" id="heading">
       </div>
@@ -40,12 +43,11 @@
       </div>
       </div>
     </section>
-    <section class="jumbotron blank">
-     </section>
-    <section id='aboutMe' class="container">
+
+    <section id='aboutMe' class="jumbotron">
       <h2>A B O U T</h2>
       <div>
-
+        put your resume link here, or maybe nix this part and put in the first part
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </section>
@@ -59,10 +61,33 @@
     </section>
    <section class="jumbotron blank">
     </section>
-    <section id='projects' class="container">
+    <section id='projects' class="">
       <h2>P R O J E C T S</h2>
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <div class="row" id="display">
+        <ul id="project-list">
+          <li>
+            <div class="col-md-4" id="">
+             <img id="project-img" src="http://www.vub.ac.be/sites/vub/files/profile_default_24.png"/>
+            </div>
+          </li>
+          <li>
+            <div class="col-md-4" id="">
+             <img id="project-img" src="http://www.vub.ac.be/sites/vub/files/profile_default_24.png"/>
+            </div>
+          </li>
+          <li>
+            <div class="col-md-4" id="">
+             <img id="project-img"
+             src="./stylesheets/assets/girlgang.png"/>
+            </div>
+          </li>
+          <li>
+            <div class="col-md-4" id="">
+             <img id="project-img"
+             src="./stylesheets/assets/transcendin-care.png"/>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
     <section class="jumbotron blank">
@@ -87,8 +112,8 @@
      </section>
      <br/>
   </body>
-  <footer class="footer">
-    <div class="container" id="footer-container">
+  <footer class="footer navbar-fixed-bottom">
+    <div class="" id="footer-container">
       <br/>
       <img src="./stylesheets/assets/bb.png" width="30" height="30"
     </div>
