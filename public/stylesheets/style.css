@@ -33,7 +33,9 @@ li {
 .container {
   background: #E9ECEF;
 }
-
+#projects {
+  background: #E9ECEF;
+}
 #project-img {
   height: 10em;
   width: 20em;
@@ -76,5 +78,5 @@ footer {
   font-weight: bold;
   text-align: center;
   margin-top: 20%;
-  padding: 2%;
+
 }
