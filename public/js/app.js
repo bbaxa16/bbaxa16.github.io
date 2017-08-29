@@ -1,0 +1,8 @@
+const app = angular.module('baxaPortfolio', []);
+
+app.controller('mainCtrl', [function(){
+  this.modal = false;
+  this.toggleModal = function(){
+    this.modal = !this.modal;
+  }
+}]);
