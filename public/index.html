@@ -10,7 +10,7 @@
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
     <script src="js/app.js" charset="utf-8"></script>
   </head>
-  <body ng-controller="mainCtrl as ctrl">
+  <body>
 
 
     <nav class="navbar fixed-top navbar-default">
@@ -63,6 +63,7 @@
     </section>
     <section id='projects' class="">
       <h2>P R O J E C T S</h2>
+      <div ng-include="'./project.html'"></div>
       <div class="row" id="display">
         <ul id="project-list">
           <li>
