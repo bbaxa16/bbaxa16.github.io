@@ -12,11 +12,14 @@ body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   }
-  nav {
-    background-color: #c8f7c8;
-  }
+nav {
+  background-color: #c8f7c8;
+}
+nav li {
+display: inline-block;
+}
 li {
-  display: inline-block;
+  list-style: none;
 }
 #heading {
   background: transparent;
