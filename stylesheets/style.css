@@ -21,6 +21,9 @@ display: inline-block;
 li {
   list-style: none;
 }
+#projects li {
+  display: inline-block;
+}
 #heading {
   background: transparent;
 }
