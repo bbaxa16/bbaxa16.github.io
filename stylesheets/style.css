@@ -53,8 +53,10 @@ li {
 }
 #socialMedia {
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
   align-content: space-between;
+  justify-content: center;
+  margin: 5%;
 
 }
 a {
@@ -65,9 +67,13 @@ a:hover {
   color: darkgreen;
 }
 .icon {
-  width: 100px;
-  height: 100px;
-  margin: 10%;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  margin: 5%;
+}
+.linked {
+  margin:0% 5%;
 }
 
 
