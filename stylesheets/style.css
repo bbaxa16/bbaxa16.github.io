@@ -51,7 +51,7 @@ li {
 .blank {
   background: transparent;
 }
-#socialMedia {
+#contact {
   display: flex;
   flex-flow: row;
   align-content: space-between;
@@ -79,6 +79,15 @@ a:hover {
   height: 100%;
   width: 100%;
   margin:0% 5%;
+}
+.icon:hover {
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 12%;
+  width: larger;
+  height: larger;
+  background: white;
+  color: black;
 }
 .linked {
   margin: 0% 2%;
