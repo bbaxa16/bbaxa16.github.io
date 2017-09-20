@@ -47,7 +47,11 @@ li {
   width: 20em;
   padding: 2%;
 }
+.git:hover {
+  background: black;
+  color: white;
 
+}
 .blank {
   background: transparent;
 }
