@@ -78,8 +78,14 @@ a:hover {
   display: inline-block;
   height: 100%;
   width: 100%;
-  margin: 5%;
+  margin:0% 5%;
 }
 .linked {
-  margin: 0% 5%;
+  margin: 0% 2%;
+}
+#linkedin {
+  margin-right: 1%;
+}
+#mail {
+  margin-left: 1%;
 }
