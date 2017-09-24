@@ -38,6 +38,7 @@ li {
   #mobile-nav {
     display: inline;
     margin: 0 4%;
+    width: 10%;
   }
   #site-nav {
     display: none;
