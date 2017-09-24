@@ -48,7 +48,15 @@ li {
   border-radius: 50%;
   -moz-border-radius:50%;
   -webkit-border-radius:50%;
-
+}
+#brand {
+  color: white;
+  position: absolute;
+  width: 25%;
+  height: 30%;
+  overflow: auto;
+  margin: 0 70%;
+  display: none;
 }
 #intro {
   background: black;
