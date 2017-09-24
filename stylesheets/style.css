@@ -34,12 +34,21 @@ li {
     display: none;
   }
 }
-
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  #mobile-nav {
+    display: inline;
+    margin: 0 4%;
+  }
+  #site-nav {
+    display: none;
+  }
+}
 #projects li {
   display: inline-block;
 }
 #heading {
-  margin-top: 10%;
+  margin: 2%;
+  margin-top: 80px;
 }
 #me {
   width: 20%;
