@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='baxaPortfolio'>
+<html>
   <head>
     <meta charset="utf-8">
     <title>B A X A</title>
@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="stylesheets/style.css">
 
     <script src="js/app.js" charset="utf-8"></script>
-        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
   </head>
   <body>
 
@@ -46,9 +49,6 @@
       <div class='row'>
         <div class='col'>
         <img src="./stylesheets/assets/headshot.png" id='me' alt="">
-      </div>
-      <div class="row" id='brand'>
-      <p>As a programmer with roots in community organizing, you will find no shortage of energy and drive in my work. Passion and the necessity for change are what mobilize me personally and professionally. My adaptive nature allows me to learn quickly and help guide my peers. I meet challenges as opportunities to create something new.</p>
       </div>
     </div>
     </section>
@@ -86,33 +86,6 @@
           </ul>
         </div>
   </section>
-    <section id='aboutMe' class="">
-      <h2 style="color: white;">BROOKE</h2>
-      <h5 style="color: white;">they/them</h5>
-      <br/>
-      <div class="row">
-        <div class="col" id='abouts'>
-          <ul>
-            <li>I am a developer caught in a love triangle with JavaScript and Ruby. <br/>I enjoy collaborating across ideas to find the most efficient and dynamic solutions.</li>
-          </ul>
-        </div>
-        <!-- <div class="col">
-          <video autoplay loop muted id='bitmoji' src="./stylesheets/assets/bitmoji_dance.mp4">
-          </video>
-        </div> -->
-        <div class="col" id='abouts'>
-          <ul>
-            <li>Apart from dev work, my passions are wrapped in political activism, fantasy fiction, feminist theory, and the practice of radical softness.</li>
-            <li>
-          </ul>
-        </div>
-      </div>
-      <div style='margin: 3%;'class="row">
-        <div class='col'>
-          <h4><a id='resume' href="https://drive.google.com/file/d/0B0pfSylsw-hCd0wxbDJMUF8zbEk/view"target="_blank">Resume</a></h4>
-        </div>
-      </div>
-    </section>
     <section id='skills' class="jumbotron">
       <h2>S K I L L S</h2>
       <div class="row">
@@ -143,7 +116,21 @@
         </div>
       </div>
     </section>
-
+      <section id='aboutMe' class="">
+        <h2 style="color: white;">BROOKE</h2>
+        <h5 style="color: white;">they/them</h5>
+        <br/>
+        <div class="row">
+          <div class="text-center" id='abouts'>
+            <p>As a programmer with roots in community organizing, you will find no shortage of energy and drive in my work. Passion and the necessity for change are what mobilize me personally and professionally. My adaptive nature allows me to learn quickly and help guide my peers. I meet challenges as opportunities to create something new.</p>
+          </div>
+        </div>
+        <div style='margin: 3%;'class="row">
+          <div class='col'>
+            <h4><a id='resume' href="https://drive.google.com/file/d/0B0pfSylsw-hCd0wxbDJMUF8zbEk/view"target="_blank">Resume</a></h4>
+          </div>
+        </div>
+      </section>
    <div class="text-center" id='contact'>
      <div>
       <a href="https://twitter.com/baxabrooke" target="_blank" id='twitter'>
