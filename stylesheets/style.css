@@ -94,10 +94,22 @@ li {
 #projects {
   background: #E9ECEF;
 }
-#project-img {
+.project-img {
   height: 10em;
   width: 20em;
   padding: 2%;
+  transition-property: width, height, opacity;
+  transition-duration: 2s;
+}
+/*#project-img:hover {
+  width: 30em;
+  height: 20em;
+  opacity: .5;
+}*/
+#modal1 {
+  z-index: 100;
+  position: absolute;
+  margin:0 25%;
 }
 .git:hover {
   background: black;
