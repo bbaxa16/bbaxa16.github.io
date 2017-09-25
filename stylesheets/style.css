@@ -67,7 +67,6 @@ li {
   }
 }
 
-}
 #projects li {
   display: inline-block;
 }
@@ -193,3 +192,4 @@ a:hover {
   #smol-nav {
     display: none;
   }
+}
