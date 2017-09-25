@@ -22,11 +22,11 @@ display: inline-block;
 li {
   list-style: none;
 }
-#mobile-nav {
+#smol-nav {
   display: none;
 }
 @media (max-width: 615px) {
-  #mobile-nav {
+  #smol-nav {
     display: inline;
     margin: 0 4%;
   }
@@ -41,6 +41,9 @@ li {
     width: 10%;
   }
   #site-nav {
+    display: none;
+  }
+  #smol-nav {
     display: none;
   }
 }
