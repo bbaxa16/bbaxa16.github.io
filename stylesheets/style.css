@@ -25,6 +25,9 @@ li {
 #smol-nav {
   display: none;
 }
+#mobile-nav {
+  display: none;
+}
 @media (max-width: 615px) {
   #smol-nav {
     display: inline;
