@@ -67,12 +67,13 @@ li {
   }
 }
 
-#projects li {
-  display: inline-block;
-}
 #heading {
   margin: 2%;
   margin-top: 80px;
+  background-image: url('https://media.giphy.com/media/afIlc2rdVizug/giphy.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #me {
   width: 20%;
@@ -88,36 +89,33 @@ li {
   background: black;
   color: white;
 }
-.container {
-  background: #E9ECEF;
-}
+
 #projects {
-  background: #E9ECEF;
+  background: transparent;
+  color: white;
 }
 .project-img {
-  height: 10em;
-  width: 20em;
+  height: 15em;
+  width: 25em;
   padding: 2%;
-  transition-property: width, height, opacity;
-  transition-duration: 2s;
+  transition-property: width, height;
+  transition-duration: 2.5s;
 }
-/*#project-img:hover {
-  width: 30em;
-  height: 20em;
-  opacity: .5;
-}*/
-#modal1 {
-  z-index: 100;
-  position: absolute;
-  margin:0 25%;
+.project-img:hover {
+  width: 35em;
+  height: 25em;
+}
+.git {
+  margin: 1%;
 }
 .git:hover {
-  background: black;
-  color: white;
-
+  color: darkgrey;
 }
-.blank {
-  background: transparent;
+#descrip {
+  background: white;
+  color: black;
+  padding: 1%;
+  margin: auto;
 }
 #bitmoji {
   border: 1px solid white;
@@ -170,13 +168,12 @@ a:hover {
   margin:0% 5%;
 }
 .icon:hover {
-  border: 2px solid black;
   border-radius: 50%;
   padding: 12%;
   width: larger;
   height: larger;
   background: white;
-  color: black;
+  color: darkgrey;
 }
 .linked {
   margin: 0% 2%;
