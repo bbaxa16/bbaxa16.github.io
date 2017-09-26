@@ -71,9 +71,10 @@ li {
   margin: 2%;
   margin-top: 80px;
   background-image: url('https://media.giphy.com/media/afIlc2rdVizug/giphy.gif');
-  background-position: center;
+  background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 #me {
   width: 20%;
