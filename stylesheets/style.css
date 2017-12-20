@@ -129,6 +129,17 @@ li {
   padding: 1%;
   margin: auto;
 }
+#polidescrip {
+    background: white;
+    color: black;
+    padding: 1%;
+    margin: 2%;
+    width: 80%;
+}
+#campaigns {
+  background: transparent;
+  color: white; 
+}
 #bitmoji {
   border: 1px solid white;
   border-radius: 2%;
