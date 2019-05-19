@@ -2,9 +2,22 @@ body, html {
   height: 100%;
 }
 #intro {
-  background-image: url("./assets/2019pic.png");
-  height: 100%;
+  /* background-image: url("./assets/2019pic.png"); */
   background-repeat: no-repeat;
   background-size:cover;
+  /* height:100%; */
+  text-align: center;
+}
+nav ul li {
+  display:inline-block;
+  padding-left: 2%;
+}
+footer {
+  background-color: black;
+  color: white;
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   text-align: center;
 }
